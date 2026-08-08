@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1200">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The 2026 Light Summit Japan — LifeWave APAC Tour</title>
 <meta name="description" content="Join LifeWave Brand Partners at The 2026 Light Summit Japan. Business Summit & Light Awards Gala Dinner, 14 November 2026, Tokyo.">
 <link rel="canonical" href="https://www.lwapac.com/jp/">
@@ -62,6 +62,90 @@ body{background:#0F101E;font-family:'CoFo Sans',system-ui,sans-serif}
 .social a{opacity:.92}.social a:hover{opacity:1}
 .toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(20px);background:rgba(15,22,50,.95);color:#fff;font:500 15px/1.4 'CoFo Sans',sans-serif;padding:13px 26px;border-radius:100px;border:1px solid rgba(130,190,255,.35);box-shadow:0 10px 40px rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:.35s;z-index:99}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ---------- mobile layout (<900px) ---------- */
+.m{display:none}
+@media (max-width:899px){
+  .stage{display:none!important}
+  .m{display:block;color:#fff}
+  .m h1,.m h2,.m h3,.m p,.m b,.m span{color:inherit}
+  body{background:#0F101E;color:#fff;-webkit-text-size-adjust:100%}
+  .m img{max-width:100%;display:block}
+
+  .m-nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;
+    justify-content:space-between;gap:14px;padding:12px 18px;
+    background:rgba(15,16,30,.86);backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,.09)}
+  .m-nav img{width:132px}
+  .m-pill{background:#fff;color:#20233F;font-weight:600;font-size:14px;
+    padding:10px 20px;border-radius:1000px;text-decoration:none;white-space:nowrap;
+    transition:transform .18s,box-shadow .18s}
+  .m-pill:active{transform:scale(.97)}
+
+  .m-kv,.m-sec,.m-spk,.m-foot{scroll-margin-top:70px}
+  .m-kv{position:relative;padding:64px 22px 54px;text-align:center;overflow:hidden;
+    background:#0B1024 center/cover no-repeat}
+  .m-kv::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(11,14,32,.30),rgba(11,14,32,.72))}
+  .m-kv>*{position:relative;z-index:1}
+  .m-kv h1,.m-kv h2.kv{font-size:clamp(40px,12.5vw,62px);font-weight:300;line-height:1.02;
+    letter-spacing:-.02em;text-shadow:0 2px 30px rgba(0,0,0,.55)}
+  .m-country{margin-top:10px;font-size:clamp(15px,4.4vw,21px);font-weight:400;
+    letter-spacing:.42em;padding-left:.42em;color:rgba(255,255,255,.95)}
+  .m-when{margin-top:26px;font-size:15.5px;color:rgba(255,255,255,.92);line-height:1.55}
+  .m-when b{font-weight:600}
+  .m-when+.m-when{margin-top:6px}
+
+  .m-sec{padding:52px 22px}
+  .m-sec h2{font-size:clamp(30px,8.4vw,40px);font-weight:300;letter-spacing:-.02em;
+    text-align:center;line-height:1.12}
+  .m-sec p{margin-top:16px;font-size:16px;line-height:1.62;color:rgba(255,255,255,.84);
+    text-align:center}
+  .m-sec p.lead{font-weight:600;color:#fff}
+  .m-cta{display:block;margin:30px auto 0;max-width:340px;text-align:center;
+    background:#fff;color:#20233F;font-weight:600;font-size:17px;padding:16px 24px;
+    border-radius:1000px;text-decoration:none;box-shadow:0 10px 30px rgba(120,190,255,.25);
+    transition:transform .18s,box-shadow .18s}
+  .m-cta:active{transform:scale(.98);box-shadow:0 6px 18px rgba(120,190,255,.35)}
+
+  .m-spk{padding:46px 18px 54px}
+  .m-spk h2{font-size:clamp(27px,7.4vw,36px);font-weight:300;letter-spacing:-.02em;
+    text-align:center;margin-bottom:22px}
+  .m-spk h2+h2{margin-top:44px}
+  .m-card{border-radius:16px;overflow:hidden;position:relative;
+    background:linear-gradient(180deg,rgb(28,34,64) 0%,rgb(40,50,95) 22%,rgb(46,80,145) 45%,
+      rgb(54,105,185) 62%,rgb(42,92,185) 80%,rgb(24,44,102) 92%,rgb(9,15,67) 100%);
+    box-shadow:inset 0 0 0 1px rgba(140,195,255,.22),0 10px 34px rgba(10,20,60,.5)}
+  .m-card.lead{background:linear-gradient(180deg,rgb(24,49,117) 0%,rgb(56,122,212) 20%,
+      rgb(44,98,185) 30%,rgb(30,58,115) 52%,rgb(28,48,95) 72%,rgb(24,42,88) 87%,rgb(22,29,53) 100%);
+    max-width:420px;margin:0 auto}
+  .m-card .ph{width:100%;aspect-ratio:1/1.05;object-fit:cover;object-position:top center;
+    display:block}
+  .m-card.lead .ph{aspect-ratio:1/1.05}
+  .m-card .ph.sil{object-fit:contain;object-position:bottom center;padding-top:12%;
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 62%,rgba(0,0,0,.5) 100%);
+    mask-image:linear-gradient(180deg,#000 0%,#000 62%,rgba(0,0,0,.5) 100%)}
+  .m-card .nm{padding:14px 14px 18px;text-align:center}
+  .m-card .nm b{display:block;font-size:20px;font-weight:400;line-height:1.2}
+  .m-card.lead .nm b{font-size:27px}
+  .m-card .nm span{display:block;margin-top:5px;font-size:13px;line-height:1.4;
+    color:rgba(255,255,255,.8)}
+  .m-card.lead .nm span{font-size:15px}
+  .m-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:4px}
+  @media (max-width:400px){.m-grid{grid-template-columns:1fr;max-width:320px;margin:4px auto 0}}
+
+  .m-foot{padding:44px 22px 54px;border-top:1px solid rgba(255,255,255,.12)}
+  .m-foot img.lg{width:190px;margin:0 auto 26px}
+  .m-links{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;max-width:420px;margin:0 auto}
+  .m-links a{color:rgba(255,255,255,.82);text-decoration:none;font-size:14.5px;line-height:1.35}
+  .m-links a:active{color:#fff}
+  .m-contact{margin-top:28px;text-align:center;font-size:14.5px;color:rgba(255,255,255,.72)}
+  .m-contact a{color:#8CC6FF;text-decoration:none;font-weight:500}
+  .m-social{display:flex;justify-content:center;gap:24px;margin-top:26px}
+  .m-social svg{width:23px;height:23px}
+  .m-copy{margin-top:26px;text-align:center;font-size:12.5px;color:rgba(255,255,255,.55)}
+}
+
 .modal{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;
   background:rgba(6,10,26,.72);backdrop-filter:blur(6px);opacity:0;transition:opacity .22s}
 .modal[hidden]{display:none}
@@ -168,6 +252,74 @@ body{background:#0F101E;font-family:'CoFo Sans',system-ui,sans-serif}
 <span id="gala" style="position:absolute;top:45.9%;"></span>
 <span id="footer" style="position:absolute;top:91.0%;"></span>
 <span id="contact" style="position:absolute;top:93.4%;"></span>
+</div>
+<div class="m">
+<header class="m-nav">
+  <a href="#mtop" aria-label="The Light Summit home"><img src="assets/logo.3651b7f4.webp" alt="LifeWave"></a>
+  <a class="m-pill" href="#reserve">Reserve Now</a>
+</header>
+
+<section class="m-kv" id="mtop" style="background-image:url('assets/bg-01-1920.35e59191.webp')">
+  <h1>Light Summit</h1>
+  <p class="m-country">JAPAN</p>
+  <p class="m-when"><b>Date:</b> 14 November 2026, Saturday</p>
+  <p class="m-when"><b>Business Summit:</b> Tokyo Big Sight - South, 1pm - 5pm</p>
+</section>
+
+<section class="m-sec">
+  <h2>Ready For More?</h2>
+  <p class="lead">Be there for the insights, strategies, and momentum that drive success.</p>
+  <p>Join high-performing LifeWave Brand Partners for a powerful, high-impact Business Summit designed to elevate your vision, sharpen your strategy, and accelerate your success. Gain exclusive insights from LifeWave Founder and CEO David Schmidt, along with other key members of management. Connect with a community that is driven by ambition and results.</p>
+  <p>This is more than an event—it’s your opportunity to hear more and gain business insights. Be in the room where growth happens.</p>
+  <a class="m-cta" href="#reserve-summit">Secure Your Seat</a>
+</section>
+
+<section class="m-spk">
+  <h2>Keynote Speaker</h2>
+  <div class="m-card lead"><img class="ph" src="assets/david.83e10617.webp" alt="David Schmidt, LifeWave Founder and CEO" loading="lazy" decoding="async"><div class="nm"><b>David Schmidt</b><span>Founder &amp; CEO</span></div></div>
+  <h2>Featured Speaker</h2>
+  <div class="m-grid">
+    <div class="m-card "><img class="ph" src="assets/edward.3e2d669e.webp" alt="Dr. Edward, President, LifeWave Asia Pacific" loading="lazy" decoding="async"><div class="nm"><b>Dr. Edward</b><span>President,</span><span>LifeWave Asia Pacific</span></div></div>
+    <div class="m-card "><img class="ph" src="assets/kelmen-narrow.b0880be0.webp" alt="Kelmen Ooi" loading="lazy" decoding="async"><div class="nm"><b>Kelmen Ooi</b><span>Vice President of Sales,</span><span>Asia Pacific</span></div></div>
+    <div class="m-card "><img class="ph sil" src="assets/coming.545e954a.webp" alt="Speaker to be announced" loading="lazy" decoding="async"><div class="nm"><b>Coming Soon</b><span>Speaker to be announced</span></div></div>
+  </div>
+</section>
+
+<section class="m-kv" id="mgala" style="background-image:url('assets/bg-04-1920.3710cfc3.webp')">
+  <h2 class="kv">Light Awards</h2>
+  <p class="m-country">JAPAN</p>
+  <p class="m-when"><b>Date:</b> 14 November 2026, Saturday</p>
+  <p class="m-when"><b>Gala Dinner:</b> Tokyo Big Sight - South Hall 4, 7pm - 10pm</p>
+</section>
+
+<section class="m-sec">
+  <h2>Gala Dinner</h2>
+  <p class="lead">An evening of celebration to honour excellence and success.</p>
+  <p>Join us for the Light Awards Gala Dinner, a celebration of excellence and achievement. This unforgettable evening honours the people who are lighting the way forward. It is Malaysia's first gala dedicated to recognition, entertainment, and celebration, where you can connect with fellow LifeWave leaders and achievers.</p>
+  <p>Don't miss your chance to experience the Light Awards Gala Dinner—limited seats available.</p>
+  <a class="m-cta" href="#reserve-gala">Secure Your Seat</a>
+</section>
+
+<section class="m-sec">
+  <h2>Featured Performance</h2>
+  <p class="lead">Position Title &mdash; Coming Soon</p>
+  <p>The celebrations continue with a special live performance during the Gala Dinner. Enjoy an evening filled with recognition, connection, and entertainment, with more details to be announced soon.</p>
+</section>
+
+<footer class="m-foot" id="mfooter">
+  <img class="lg" src="assets/logo.3651b7f4.webp" alt="LifeWave" loading="lazy" decoding="async">
+  <nav class="m-links">
+    <a href="support/">Customer Support</a>
+    <a href="privacy/">Privacy Policy</a>
+    <a href="terms/">Terms and Conditions</a>
+    <a href="code-of-ethics/">Code of Ethics</a>
+    <a href="accessibility/">Accessibility Statement</a>
+    <a href="https://www.lifewave.com/about" target="_blank" rel="noopener">About Us</a>
+  </nav>
+  <p class="m-contact">Questions? <a href="mailto:summit@lwapac.com">summit@lwapac.com</a></p>
+  <div class="m-social"><a href="https://www.facebook.com/LifeWaveGlobal" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="#fff"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.5-1.5h1.6V4.6c-.28-.04-1.24-.12-2.36-.12-2.33 0-3.94 1.43-3.94 4.05v2.26H7.9V14h2.4v8z"/></svg></a><a href="https://www.instagram.com/lifewaveglobal/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="#fff"><path fill-rule="evenodd" d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.37-1.06-.42-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.21 8.8 2.2 12 2.2m0 3.35a4.45 4.45 0 1 1 0 8.9 4.45 4.45 0 0 1 0-8.9m0 7.34a2.89 2.89 0 1 0 0-5.78 2.89 2.89 0 0 0 0 5.78m5.66-7.56a1.04 1.04 0 1 1-2.08 0 1.04 1.04 0 0 1 2.08 0"/></svg></a><a href="https://www.youtube.com/@LifeWaveGlobal" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="#fff"><path d="M23 12s0-3.2-.4-4.72a2.47 2.47 0 0 0-1.74-1.75C19.35 5.1 12 5.1 12 5.1s-7.35 0-8.86.43A2.47 2.47 0 0 0 1.4 7.28C1 8.8 1 12 1 12s0 3.2.4 4.72a2.47 2.47 0 0 0 1.74 1.75c1.51.43 8.86.43 8.86.43s7.35 0 8.86-.43a2.47 2.47 0 0 0 1.74-1.75C23 15.2 23 12 23 12M9.75 15.02V8.98L15.5 12z"/></svg></a><a href="https://x.com/lifewaveglobal" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="#fff"><path d="M18.9 2H22l-7.3 8.34L23.2 22h-6.6l-5.18-6.77L5.5 22H2.4l7.8-8.92L1.2 2h6.77l4.68 6.19zm-1.16 18h1.7L7.34 3.9H5.5z"/></svg></a><a href="https://www.linkedin.com/company/lifewave" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6.94 5A1.94 1.94 0 1 1 3.06 5a1.94 1.94 0 0 1 3.88 0M3.32 8.4h3.24V22H3.32zM9.1 8.4h3.1v1.86h.05c.43-.82 1.49-1.68 3.06-1.68 3.27 0 3.87 2.15 3.87 4.95V22h-3.23v-6.02c0-1.44-.03-3.29-2-3.29-2.01 0-2.32 1.57-2.32 3.19V22H9.1z"/></svg></a></div>
+  <p class="m-copy">&copy; LifeWave, Inc. 2026 All rights reserved</p>
+</footer>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite">Registration opens soon — stay tuned!</div>
 <div class="modal" id="pick" role="dialog" aria-modal="true" aria-labelledby="pickTitle" hidden>
