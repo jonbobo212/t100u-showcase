@@ -28,10 +28,18 @@ body{background:#0F101E;font-family:'CoFo Sans',system-ui,sans-serif}
 .bg{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
 .t{position:absolute;z-index:7;color:#fff;line-height:1;font-family:inherit}
 .t b{font-weight:600}
-.tlink{text-decoration:none;color:#fff}
+.tlink{text-decoration:none;color:#fff;cursor:pointer;transition:color .18s,opacity .18s}
+.tlink::after{content:"";position:absolute;left:50%;right:50%;bottom:-.35em;height:2px;background:currentColor;opacity:0;transition:left .22s,right .22s,opacity .22s}
+.tlink:hover::after{left:-.15em;right:-.15em;opacity:.9}
+.tlink:hover{opacity:1!important;color:#BFE0FF}
+.tlink:focus-visible,.pill:focus-visible,.social a:focus-visible{outline:2px solid #7FBDFF;outline-offset:4px;border-radius:4px}
 .wm{white-space:nowrap}
 .pill{position:absolute;z-index:8;background:#fff;color:#20233F;border-radius:1000px;display:flex;align-items:center;justify-content:center;font-weight:600;font-family:'CoFo Sans',sans-serif;text-decoration:none;transition:transform .2s,box-shadow .25s}
-.pill:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(120,190,255,.4)}
+.pill{cursor:pointer}
+.pill:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 46px rgba(120,190,255,.55)}
+.pill:active{transform:translateY(-1px) scale(.99)}
+.social a{transition:transform .18s,opacity .18s}
+.social a:hover{transform:translateY(-2px) scale(1.12);opacity:1}
 .panel{position:absolute;z-index:4;border-radius:.7vw;overflow:hidden;
   background:radial-gradient(90% 55% at 50% 78%,rgba(90,160,245,.55) 0%,rgba(60,120,220,.28) 45%,rgba(0,0,0,0) 100%),linear-gradient(180deg,rgb(28,34,64) 0%,rgb(40,50,95) 22%,rgb(46,80,145) 45%,rgb(54,105,185) 62%,rgb(42,92,185) 80%,rgb(24,44,102) 92%,rgb(9,15,67) 100%);
   box-shadow:inset 0 0 0 1px rgba(140,195,255,.22),0 0 2.2vw rgba(40,110,220,.28)}
@@ -54,6 +62,26 @@ body{background:#0F101E;font-family:'CoFo Sans',system-ui,sans-serif}
 .social a{opacity:.92}.social a:hover{opacity:1}
 .toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(20px);background:rgba(15,22,50,.95);color:#fff;font:500 15px/1.4 'CoFo Sans',sans-serif;padding:13px 26px;border-radius:100px;border:1px solid rgba(130,190,255,.35);box-shadow:0 10px 40px rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:.35s;z-index:99}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.modal{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;
+  background:rgba(6,10,26,.72);backdrop-filter:blur(6px);opacity:0;transition:opacity .22s}
+.modal[hidden]{display:none}
+.modal.show{opacity:1}
+.modal-card{position:relative;width:min(92vw,560px);background:linear-gradient(180deg,#161C36,#101528);
+  border:1px solid rgba(130,190,255,.28);border-radius:20px;padding:38px 34px 32px;
+  box-shadow:0 30px 90px rgba(0,0,0,.6);transform:translateY(14px) scale(.98);transition:transform .22s}
+.modal.show .modal-card{transform:none}
+.modal-x{position:absolute;top:12px;right:16px;background:none;border:0;color:#9FB3D9;font-size:30px;
+  line-height:1;cursor:pointer;padding:4px 8px;border-radius:8px}
+.modal-x:hover{color:#fff;background:rgba(255,255,255,.08)}
+.modal-title{font:600 24px/1.25 'CoFo Sans',sans-serif;color:#fff;margin-bottom:6px}
+.modal-sub{font:400 15px/1.4 'CoFo Sans',sans-serif;color:rgba(255,255,255,.68);margin-bottom:22px}
+.modal-opts{display:flex;flex-direction:column;gap:12px}
+.modal-opt{display:flex;flex-direction:column;gap:3px;padding:16px 20px;border-radius:14px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(140,195,255,.25);text-decoration:none;
+  transition:background .18s,border-color .18s,transform .18s}
+.modal-opt:hover{background:rgba(90,160,245,.18);border-color:rgba(140,195,255,.6);transform:translateY(-2px)}
+.modal-opt-t{font:600 18px/1.3 'CoFo Sans',sans-serif;color:#fff}
+.modal-opt-d{font:400 14px/1.3 'CoFo Sans',sans-serif;color:rgba(255,255,255,.66)}
 </style>
 </head>
 <body>
@@ -69,9 +97,8 @@ body{background:#0F101E;font-family:'CoFo Sans',system-ui,sans-serif}
 <div class="portw" style="left:8.9062%;top:32.0471%;width:29.5833%;height:10.2354%"><img src="assets/david.83e10617.webp" loading="lazy" decoding="async" alt="David Schmidt, LifeWave Founder and CEO" style="left:0.000%;top:0.000%;width:109.331%"></div><div class="portw" style="left:43.3854%;top:33.4975%;width:15.9896%;height:6.7323%"><img src="assets/edward.3e2d669e.webp" loading="lazy" decoding="async" alt="Dr. Edward, President, LifeWave Asia Pacific" style="left:-29.902%;top:0.000%;width:129.316%;transform:scaleX(-1)"></div><div class="portw" style="left:59.6354%;top:33.3470%;width:15.9896%;height:6.8829%"><img src="assets/kphau.c172e672.webp" loading="lazy" decoding="async" alt="KP Hau, Country Manager, LifeWave Malaysia and Singapore" style="left:-23.550%;top:-0.497%;width:134.202%"></div><img class="port" src="assets/coming.545e954a.webp" loading="lazy" decoding="async" alt="" style="left:75.5729%;top:33.4565%;width:16.9792%;height:6.8008%;-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 40%,rgba(0,0,0,.55) 75%,rgba(0,0,0,.35) 100%);mask-image:linear-gradient(180deg,#000 0%,#000 40%,rgba(0,0,0,.55) 75%,rgba(0,0,0,.35) 100%)">
 <a class="t tlink" href="#top" style="top:1.7251%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:400;left:50.0083%;white-space:nowrap;border-bottom:2px solid #fff;padding-bottom:6px">Summit</a>
 <a class="t tlink" href="#gala" style="top:1.7251%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:400;left:57.7760%;white-space:nowrap;letter-spacing:0.0138vw;letter-spacing:0.0138cqw">Gala Dinner</a>
-<a class="t tlink" href="#footer" style="top:1.7251%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:400;left:67.1469%;white-space:nowrap">About Us</a>
-<a class="t tlink" href="#footer" style="top:1.7251%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:400;left:74.7552%;white-space:nowrap">Contact Us</a>
-<div class="t wm" style="top:4.6489%;font-size:2.2917vw;font-size:2.2917cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + 0.0521vw));white-space:nowrap">The 2026</div>
+<a class="t tlink" href="https://www.lifewave.com/about" target="_blank" rel="noopener" style="top:1.7251%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:400;left:67.1469%;white-space:nowrap">About Us</a>
+<a class="t tlink" href="#contact" style="top:1.7251%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:400;left:74.7552%;white-space:nowrap">Contact Us</a>
 <h1 class="t wm" style="top:5.4320%;font-size:9.4792vw;font-size:9.4792cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.3906vw));white-space:nowrap;letter-spacing:-0.2407vw;letter-spacing:-0.2407cqw">Light Summit</h1>
 <div class="t wm" style="top:8.2183%;font-size:2.9688vw;font-size:2.9688cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.0781vw));white-space:nowrap;letter-spacing:.42em;padding-left:.42em">MALAYSIA</div>
 <div class="t" style="top:10.2806%;font-size:1.7969vw;font-size:1.7969cqw;font-weight:300;left:50%;transform:translateX(-50%);white-space:nowrap;letter-spacing:0.0027vw;letter-spacing:0.0027cqw"><b>Date:</b> 3 November 2026, Tuesday</div>
@@ -101,7 +128,6 @@ body{background:#0F101E;font-family:'CoFo Sans',system-ui,sans-serif}
 <div class="t" style="top:42.1576%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:63.7521%;white-space:nowrap">&amp; Singapore</div>
 <div class="t" style="top:53.7941%;font-size:1.8073vw;font-size:1.8073cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + 0.0260vw));white-space:nowrap;letter-spacing:0.0091vw;letter-spacing:0.0091cqw"><b>Date:</b> 3 November 2026, Tuesday</div>
 <div class="t" style="top:54.6836%;font-size:1.8073vw;font-size:1.8073cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + 0.0260vw));white-space:nowrap;letter-spacing:0.0061vw;letter-spacing:0.0061cqw"><b>Gala Dinner:</b> Sunway Hotel Ballroom, 7pm - 10pm</div>
-<div class="t wm" id="gala" style="top:46.6166%;font-size:2.2917vw;font-size:2.2917cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + 0.0521vw));white-space:nowrap">The 2026</div>
 <h2 class="t wm" style="top:47.4134%;font-size:9.4792vw;font-size:9.4792cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.3958vw));white-space:nowrap;letter-spacing:-0.02em">Light Awards</h2>
 <div class="t wm" style="top:50.1860%;font-size:2.9688vw;font-size:2.9688cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.0781vw));white-space:nowrap;letter-spacing:.42em;padding-left:.42em">MALAYSIA</div>
 <h2 class="t" style="top:60.9403%;font-size:5.8333vw;font-size:5.8333cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.1667vw));white-space:nowrap;letter-spacing:-0.3146vw;letter-spacing:-0.3146cqw">Gala Dinner</h2>
@@ -121,31 +147,65 @@ body{background:#0F101E;font-family:'CoFo Sans',system-ui,sans-serif}
 <div class="t" style="top:82.5930%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:35.7052%;white-space:nowrap;letter-spacing:-0.0796vw;letter-spacing:-0.0796cqw">an evening filled with recognition,</div>
 <div class="t" style="top:83.1540%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:32.2458%;white-space:nowrap;letter-spacing:-0.0735vw;letter-spacing:-0.0735cqw">connection, and entertainment, with more</div>
 <div class="t" style="top:83.7150%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:36.8677%;white-space:nowrap;letter-spacing:-0.0607vw;letter-spacing:-0.0607cqw">details to be announced soon.</div>
-<a class="t tlink" href="#footer" style="top:93.3344%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:42.1562%;white-space:nowrap">Customer Support</a>
-<a class="t tlink" href="#footer" style="top:93.3480%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:59.2083%;white-space:nowrap">Privacy Policy</a>
-<a class="t tlink" href="#footer" style="top:93.3480%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:78.6875%;white-space:nowrap">Terms and Conditions</a>
-<a class="t tlink" href="#footer" style="top:94.0049%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:42.2083%;white-space:nowrap">Code of Ethics</a>
-<a class="t tlink" href="#footer" style="top:94.0185%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:59.2396%;white-space:nowrap">Accessibility Statement</a>
+<a class="t tlink" href="https://www.lifewave.com/contact" target="_blank" rel="noopener" style="top:93.3344%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:42.1562%;white-space:nowrap">Customer Support</a>
+<a class="t tlink" href="https://www.lifewave.com/privacy-policy" target="_blank" rel="noopener" style="top:93.3480%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:59.2083%;white-space:nowrap">Privacy Policy</a>
+<a class="t tlink" href="https://www.lifewave.com/terms-and-conditions" target="_blank" rel="noopener" style="top:93.3480%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:78.6875%;white-space:nowrap">Terms and Conditions</a>
+<a class="t tlink" href="https://www.lifewave.com/code-of-ethics" target="_blank" rel="noopener" style="top:94.0049%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:42.2083%;white-space:nowrap">Code of Ethics</a>
+<a class="t tlink" href="https://www.lifewave.com/accessibility" target="_blank" rel="noopener" style="top:94.0185%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:59.2396%;white-space:nowrap">Accessibility Statement</a>
 <div class="t" style="top:96.1258%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:9.4219%;white-space:nowrap;letter-spacing:-0.0065vw;letter-spacing:-0.0065cqw">© LifeWave, Inc. 2026 All rights reserved</div>
 <div class="t" style="top:96.1258%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:600;opacity:0.78;left:42.0417%;white-space:nowrap">Join the Conversation</div>
+<a class="t tlink" href="mailto:summit@lwapac.com" style="top:94.6480%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:42.1875%;white-space:nowrap">summit@lwapac.com</a>
 <a href="#top" style="position:absolute;left:4.7396%;top:1.2999%;width:15.5729%;z-index:6"><img src="assets/logo.3651b7f4.webp" style="width:100%" alt="LifeWave"></a>
 <img src="assets/logo.3651b7f4.webp" loading="lazy" decoding="async" style="position:absolute;left:7.4479%;top:92.6382%;width:28.2292%;z-index:6" alt="LifeWave">
 <div style="position:absolute;left:8.6979%;top:91.6119%;width:82.6042%;height:1px;background:rgba(255,255,255,.28);z-index:6"></div>
-<a class="pill" href="https://form.evenesis.com/TheLightSummitMY/Main" target="_blank" rel="noopener" style="left:83.4375%;top:1.4915%;width:11.3542%;height:0.7937%;font-size:1.2396vw;font-size:1.2396cqw">Reserve Now</a><a class="pill" href="https://form.evenesis.com/TheLightSummitMY/Main" target="_blank" rel="noopener" style="left:35.7292%;top:25.2874%;width:27.2917%;height:1.4231%;font-size:2.5521vw;font-size:2.5521cqw">Secure Your Seat</a><a class="pill" href="https://form.evenesis.com/TheLightAwardMY/Main" target="_blank" rel="noopener" style="left:35.7292%;top:69.4992%;width:27.2917%;height:1.4231%;font-size:2.5521vw;font-size:2.5521cqw">Secure Your Seat</a><a class="pill" href="https://form.evenesis.com/TheLightSummitMY/Main" target="_blank" rel="noopener" style="left:78.5938%;top:95.8265%;width:11.9792%;height:0.8347%;font-size:1.2500vw;font-size:1.2500cqw">Reserve Now</a>
+<a class="pill" href="#reserve" style="left:83.4375%;top:1.4915%;width:11.3542%;height:0.7937%;font-size:1.2396vw;font-size:1.2396cqw">Reserve Now</a><a class="pill" href="#reserve-summit" style="left:35.7292%;top:25.2874%;width:27.2917%;height:1.4231%;font-size:2.5521vw;font-size:2.5521cqw">Secure Your Seat</a><a class="pill" href="#reserve-gala" style="left:35.7292%;top:69.4992%;width:27.2917%;height:1.4231%;font-size:2.5521vw;font-size:2.5521cqw">Secure Your Seat</a><a class="pill" href="#reserve" style="left:78.5938%;top:95.8265%;width:11.9792%;height:0.8347%;font-size:1.2500vw;font-size:1.2500cqw">Reserve Now</a>
 <div class="cue" style="left:48.8542%;top:13.1226%;border-color:rgba(255,255,255,.65)"><span style="background:rgba(255,255,255,.65)"></span></div>
 <div class="cuechev" style="left:49.2188%;top:14.0120%"><svg viewBox="0 0 24 20" fill="none" stroke="rgba(255,255,255,.65)" stroke-width="2"><path d="M4 2l8 7 8-7"/><path d="M4 10l8 7 8-7"/></svg></div>
 <div class="cue" style="left:48.8542%;top:56.4997%;border-color:rgba(240,205,150,.75)"><span style="background:rgba(240,205,150,.75)"></span></div>
 <div class="cuechev" style="left:49.2188%;top:57.3892%"><svg viewBox="0 0 24 20" fill="none" stroke="rgba(240,205,150,.75)" stroke-width="2"><path d="M4 2l8 7 8-7"/><path d="M4 10l8 7 8-7"/></svg></div>
 <a href="#top" class="totop" style="left:85.9375%;top:24.1379%;width:5.5729%;height:1.4641%"><svg viewBox="0 0 24 24" fill="none" stroke="#7fbdff" stroke-width="2.2"><path d="M6 15l6-6 6 6"/><path d="M6 10l6-6 6 6"/></svg></a>
 <a href="#top" class="totop" style="left:85.9375%;top:85.0985%;width:5.5729%;height:1.4641%"><svg viewBox="0 0 24 24" fill="none" stroke="#7fbdff" stroke-width="2.2"><path d="M6 15l6-6 6 6"/><path d="M6 10l6-6 6 6"/></svg></a>
-<div class="social" style="left:56.3542%;top:95.9360%"><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="#fff"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.5-1.5h1.6V4.6c-.28-.04-1.24-.12-2.36-.12-2.33 0-3.94 1.43-3.94 4.05v2.26H7.9V14h2.4v8z"/></svg></a><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="#fff"><path fill-rule="evenodd" d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.37-1.06-.42-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.21 8.8 2.2 12 2.2m0 3.35a4.45 4.45 0 1 1 0 8.9 4.45 4.45 0 0 1 0-8.9m0 7.34a2.89 2.89 0 1 0 0-5.78 2.89 2.89 0 0 0 0 5.78m5.66-7.56a1.04 1.04 0 1 1-2.08 0 1.04 1.04 0 0 1 2.08 0"/></svg></a><a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="#fff"><path d="M23 12s0-3.2-.4-4.72a2.47 2.47 0 0 0-1.74-1.75C19.35 5.1 12 5.1 12 5.1s-7.35 0-8.86.43A2.47 2.47 0 0 0 1.4 7.28C1 8.8 1 12 1 12s0 3.2.4 4.72a2.47 2.47 0 0 0 1.74 1.75c1.51.43 8.86.43 8.86.43s7.35 0 8.86-.43a2.47 2.47 0 0 0 1.74-1.75C23 15.2 23 12 23 12M9.75 15.02V8.98L15.5 12z"/></svg></a><a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="#fff"><path d="M18.9 2H22l-7.3 8.34L23.2 22h-6.6l-5.18-6.77L5.5 22H2.4l7.8-8.92L1.2 2h6.77l4.68 6.19zm-1.16 18h1.7L7.34 3.9H5.5z"/></svg></a><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6.94 5A1.94 1.94 0 1 1 3.06 5a1.94 1.94 0 0 1 3.88 0M3.32 8.4h3.24V22H3.32zM9.1 8.4h3.1v1.86h.05c.43-.82 1.49-1.68 3.06-1.68 3.27 0 3.87 2.15 3.87 4.95V22h-3.23v-6.02c0-1.44-.03-3.29-2-3.29-2.01 0-2.32 1.57-2.32 3.19V22H9.1z"/></svg></a></div>
-<span id="footer" style="position:absolute;top:91.5%;"></span>
+<div class="social" style="left:56.3542%;top:95.9360%"><a href="https://www.facebook.com/LifeWaveGlobal" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="#fff"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.5-1.5h1.6V4.6c-.28-.04-1.24-.12-2.36-.12-2.33 0-3.94 1.43-3.94 4.05v2.26H7.9V14h2.4v8z"/></svg></a><a href="https://www.instagram.com/lifewaveglobal/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="#fff"><path fill-rule="evenodd" d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.37-1.06-.42-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.21 8.8 2.2 12 2.2m0 3.35a4.45 4.45 0 1 1 0 8.9 4.45 4.45 0 0 1 0-8.9m0 7.34a2.89 2.89 0 1 0 0-5.78 2.89 2.89 0 0 0 0 5.78m5.66-7.56a1.04 1.04 0 1 1-2.08 0 1.04 1.04 0 0 1 2.08 0"/></svg></a><a href="https://www.youtube.com/@LifeWaveGlobal" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="#fff"><path d="M23 12s0-3.2-.4-4.72a2.47 2.47 0 0 0-1.74-1.75C19.35 5.1 12 5.1 12 5.1s-7.35 0-8.86.43A2.47 2.47 0 0 0 1.4 7.28C1 8.8 1 12 1 12s0 3.2.4 4.72a2.47 2.47 0 0 0 1.74 1.75c1.51.43 8.86.43 8.86.43s7.35 0 8.86-.43a2.47 2.47 0 0 0 1.74-1.75C23 15.2 23 12 23 12M9.75 15.02V8.98L15.5 12z"/></svg></a><a href="https://x.com/lifewaveglobal" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="#fff"><path d="M18.9 2H22l-7.3 8.34L23.2 22h-6.6l-5.18-6.77L5.5 22H2.4l7.8-8.92L1.2 2h6.77l4.68 6.19zm-1.16 18h1.7L7.34 3.9H5.5z"/></svg></a><a href="https://www.linkedin.com/company/lifewave" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6.94 5A1.94 1.94 0 1 1 3.06 5a1.94 1.94 0 0 1 3.88 0M3.32 8.4h3.24V22H3.32zM9.1 8.4h3.1v1.86h.05c.43-.82 1.49-1.68 3.06-1.68 3.27 0 3.87 2.15 3.87 4.95V22h-3.23v-6.02c0-1.44-.03-3.29-2-3.29-2.01 0-2.32 1.57-2.32 3.19V22H9.1z"/></svg></a></div>
+<span id="gala" style="position:absolute;top:45.9%;"></span>
+<span id="footer" style="position:absolute;top:91.0%;"></span>
+<span id="contact" style="position:absolute;top:93.4%;"></span>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite">Registration opens soon — stay tuned!</div>
+<div class="modal" id="pick" role="dialog" aria-modal="true" aria-labelledby="pickTitle" hidden>
+  <div class="modal-card" role="document">
+    <button class="modal-x" id="pickX" aria-label="Close">&times;</button>
+    <p class="modal-title" id="pickTitle">Which would you like to reserve?</p>
+    <p class="modal-sub">Choose an event to continue to registration.</p>
+    <div class="modal-opts">
+      <a class="modal-opt" id="pickSummit" href="#reserve-summit">
+        <span class="modal-opt-t">Business Summit</span>
+        <span class="modal-opt-d">3 November 2026 · Sunway Convention Centre, 1pm - 5pm</span>
+      </a>
+      <a class="modal-opt" id="pickGala" href="#reserve-gala">
+        <span class="modal-opt-t">Light Awards Gala Dinner</span>
+        <span class="modal-opt-d">3 November 2026 · Sunway Hotel Ballroom, 7pm - 10pm</span>
+      </a>
+    </div>
+  </div>
+</div>
 <script>
-const REG_URL="";
+const REG_SUMMIT="https://form.evenesis.com/TheLightSummitMY/Main";
+const REG_GALA="https://form.evenesis.com/TheLightAwardMY/Main";
 document.querySelectorAll('a[href="#"]').forEach(a=>a.addEventListener('click',e=>e.preventDefault()));
-document.querySelectorAll('a[href="#reserve"]').forEach(a=>{a.addEventListener('click',e=>{if(REG_URL){a.href=REG_URL;a.target="_blank";return}e.preventDefault();const t=document.getElementById('toast');t.classList.add('show');clearTimeout(window.__tt);window.__tt=setTimeout(()=>t.classList.remove('show'),2600)})});
+function toast(){const t=document.getElementById('toast');t.classList.add('show');clearTimeout(window.__tt);window.__tt=setTimeout(()=>t.classList.remove('show'),2600)}
+function go(url){if(url){window.open(url,'_blank','noopener')}else{toast()}}
+const modal=document.getElementById('pick');let lastFocus=null;
+function openPick(){lastFocus=document.activeElement;modal.hidden=false;requestAnimationFrame(()=>modal.classList.add('show'));document.getElementById('pickSummit').focus()}
+function closePick(){modal.classList.remove('show');setTimeout(()=>{modal.hidden=true;if(lastFocus)lastFocus.focus()},220)}
+document.getElementById('pickX').addEventListener('click',closePick);
+modal.addEventListener('click',e=>{if(e.target===modal)closePick()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)closePick()});
+document.querySelectorAll('a[href="#reserve"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openPick()}));
+document.querySelectorAll('a[href="#reserve-summit"],a[href="#reserve-gala"]').forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault();
+  if(!modal.hidden)closePick();
+  go(a.getAttribute('href')==='#reserve-gala'?REG_GALA:REG_SUMMIT);
+}));
 </script>
 </body>
 </html>
