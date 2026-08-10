@@ -82,19 +82,74 @@ body{background:#0F101E;font-family:'CoFo Sans',system-ui,sans-serif}
     color:#20233F;border-radius:1000px;font-weight:600;white-space:nowrap;
     transition:transform .18s,box-shadow .25s}
   .mpill:active{transform:scale(.98);box-shadow:0 0 6vw 1vw rgba(150,205,255,.4)}
-  .mtop{border-radius:50%;display:flex;align-items:center;justify-content:center;
-    position:absolute}
-  .mtop svg{width:54%;height:54%}
-  .mtop::before{content:"";position:absolute;inset:12%;border-radius:50%;
-    background:#191F3C}
-  .mtop svg{position:relative}
-  .mtop.blue{background:radial-gradient(circle,rgba(96,170,255,.55) 38%,rgba(96,170,255,0) 72%);
-    color:#8FC4FF}
-  .mtop.gold{background:radial-gradient(circle,rgba(245,190,120,.55) 38%,rgba(245,190,120,0) 72%);
-    color:#F2C98A}
+  /* Back to top floats clear of the artwork: the client paints a disc into
+     two of the bands, but a painted control scrolls away with its plate, so
+     the plates drop theirs and this one follows the reader. The ring reads
+     scroll progress, and it takes the palette of whichever band it is over. */
+  .mfab{position:fixed;right:calc(22 * var(--u));bottom:calc(26 * var(--u));
+    z-index:60;width:calc(58 * var(--u));height:calc(58 * var(--u));
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(19,24,48,.82);backdrop-filter:blur(8px);border:0;
+    border-radius:50%;cursor:pointer;color:#8FC4FF;
+    box-shadow:0 6px 22px rgba(0,0,0,.45),0 0 0 1px rgba(140,195,255,.28) inset;
+    opacity:0;translate:0 calc(18 * var(--u));pointer-events:none;
+    transition:opacity .3s,translate .3s,color .5s,box-shadow .5s}
+  .mfab.on{opacity:1;translate:0 0;pointer-events:auto}
+  .mfab:active{translate:0 2px}
+  .mfab.gold{color:#F2C98A;box-shadow:0 6px 22px rgba(0,0,0,.45),
+    0 0 0 1px rgba(245,204,138,.30) inset}
+  .mfab .ico{position:relative;width:46%;height:46%}
+  .mfab .ico svg{width:100%;height:100%;display:block}
+  .mfab .ring{position:absolute;inset:0;width:100%;height:100%;
+    transform:rotate(-90deg);overflow:visible}
+  .mfab .ring circle{fill:none;stroke-width:1.6;r:20.6px;cx:22px;cy:22px}
+  .mfab .ring .trk{stroke:rgba(255,255,255,.13)}
+  .mfab .ring .prg{stroke:currentColor;stroke-linecap:round;
+    stroke-dasharray:129.4;stroke-dashoffset:calc(129.4 * (1 - var(--p,0)));
+    transition:stroke-dashoffset .12s linear}
   .mcue{color:#E3C79A;opacity:.85}
   .mcue svg{width:100%;height:100%;display:block}
+  .m.anim .mcue svg{animation:mbob 2.4s ease-in-out infinite}
+  @keyframes mbob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 
+  /* Sections settle in as they arrive: everything a band positions rises a
+     little and fades, in the order the eye reads it. Enabled by script, so
+     the page is fully legible if it never runs. */
+  .m.anim .mb>*{opacity:0;translate:0 calc(18 * var(--u));
+    transition:opacity .68s cubic-bezier(.22,.72,.24,1),
+               translate .68s cubic-bezier(.22,.72,.24,1)}
+  .m.anim .mb.in>*{opacity:1;translate:0 0}
+  .m.anim .mb.in>.mpill{transition-duration:.5s}
+  .m.anim .mb>.mrule{translate:0 0;clip-path:inset(0 100% 0 0);
+    transition:clip-path .9s cubic-bezier(.22,.72,.24,1)}
+  .m.anim .mb.in>.mrule{clip-path:inset(0 0 0 0)}
+  @media (prefers-reduced-motion:reduce){
+    .m.anim .mb>*{opacity:1;translate:0 0;transition:none}
+    .m.anim .mb>.mrule{clip-path:none}
+    .m.anim .mcue svg{animation:none}
+    .mfab{transition:opacity .2s}
+    html{scroll-behavior:auto}
+  }
+
+  .m.anim .mb.in>*:nth-child(1){transition-delay:0ms}
+  .m.anim .mb.in>*:nth-child(2){transition-delay:55ms}
+  .m.anim .mb.in>*:nth-child(3){transition-delay:110ms}
+  .m.anim .mb.in>*:nth-child(4){transition-delay:165ms}
+  .m.anim .mb.in>*:nth-child(5){transition-delay:220ms}
+  .m.anim .mb.in>*:nth-child(6){transition-delay:275ms}
+  .m.anim .mb.in>*:nth-child(7){transition-delay:330ms}
+  .m.anim .mb.in>*:nth-child(8){transition-delay:385ms}
+  .m.anim .mb.in>*:nth-child(9){transition-delay:440ms}
+  .m.anim .mb.in>*:nth-child(10){transition-delay:495ms}
+  .m.anim .mb.in>*:nth-child(11){transition-delay:550ms}
+  .m.anim .mb.in>*:nth-child(12){transition-delay:605ms}
+  .m.anim .mb.in>*:nth-child(13){transition-delay:660ms}
+  .m.anim .mb.in>*:nth-child(14){transition-delay:715ms}
+  .m.anim .mb.in>*:nth-child(15){transition-delay:770ms}
+  .m.anim .mb.in>*:nth-child(16){transition-delay:825ms}
+  .m.anim .mb.in>*:nth-child(17){transition-delay:880ms}
+  .m.anim .mb.in>*:nth-child(18){transition-delay:935ms}
+  
   /* nav */
   .mham{display:flex;flex-direction:column;justify-content:space-between;
     background:none;border:0;padding:0;cursor:pointer;z-index:20}
@@ -121,6 +176,21 @@ body{background:#0F101E;font-family:'CoFo Sans',system-ui,sans-serif}
   .mdraw a.mpill{left:calc(40.3 * var(--u));top:calc(506.4 * var(--u));
     width:calc(226.9 * var(--u));height:calc(58.7 * var(--u));
     font-size:calc(23.8 * var(--u));color:#20233F}
+  /* the menu deals itself out on open */
+  .m.anim .mdraw>*{opacity:0;translate:calc(-14 * var(--u)) 0;
+    transition:opacity .34s ease,translate .38s cubic-bezier(.22,.72,.24,1)}
+  .m.anim.open .mdraw>*{opacity:1;translate:0 0}
+  @media (prefers-reduced-motion:reduce){
+    .m.anim .mdraw>*{opacity:1;translate:0 0;transition:none}
+  }
+  .m.anim.open .mdraw>*:nth-child(1){transition-delay:40ms}
+  .m.anim.open .mdraw>*:nth-child(2){transition-delay:85ms}
+  .m.anim.open .mdraw>*:nth-child(3){transition-delay:130ms}
+  .m.anim.open .mdraw>*:nth-child(4){transition-delay:175ms}
+  .m.anim.open .mdraw>*:nth-child(5){transition-delay:220ms}
+  .m.anim.open .mdraw>*:nth-child(6){transition-delay:265ms}
+  .m.anim.open .mdraw>*:nth-child(7){transition-delay:310ms}
+  
 
   /* footer bits the plate no longer paints */
   .mrule{height:1px;background:rgba(255,255,255,.34)}
@@ -236,12 +306,13 @@ body{background:#0F101E;font-family:'CoFo Sans',system-ui,sans-serif}
 </div>
 <div class="m" id="mtop">
 <nav class="mdraw" id="mdraw" aria-label="Main"><button class="mclose" id="mclose" aria-label="Close menu"><svg viewBox="0 0 28.2 20.7" aria-hidden="true"><path d="M.6.6 27.6 20.1M27.6.6.6 20.1"/></svg></button><div class="mdlogo"><img src="assets/logo-mark.852a4b2a.webp" alt="LifeWave"></div><a class="ml" href="#mtop" style="top:calc(260.5 * var(--u))">Summit</a><a class="ml" href="#mgala" style="top:calc(317.7 * var(--u))">Gala Dinner</a><a class="ml" href="https://www.lifewave.com/about" target=_blank rel=noopener style="top:calc(374.9 * var(--u))">About Us</a><a class="ml" href="#mcontact" style="top:calc(432.1 * var(--u))">Contact Us</a><a class="mpill" href="#reserve">Reserve Now</a></nav>
+<button class="mfab" id="mfab" aria-label="Back to top"><svg class="ring" viewBox="0 0 44 44" aria-hidden="true"><circle class="trk"/><circle class="prg"/></svg><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13.5 12 7l7 6.5M5 19l7-6.5 7 6.5"/></svg></span></button>
 <section class="mb" style="aspect-ratio:480/960;background-image:url('assets/bg-m1.68e097f8.webp')"><button class="mham" id="mham" aria-label="Menu" aria-expanded="false" style="left:6.9792%;top:10.0000%;width:6.0417%;height:2.7083%"><i></i><i></i><i></i></button><a class="mlogo" href="#mtop" style="left:55.8333%;top:8.0208%;width:30.9375%;height:7.0208%"><img src="assets/logo-mark.852a4b2a.webp" alt="LifeWave" style="width:100%;height:100%;object-fit:contain"></a><div class="mt" style="top:28.8953%;font-size:calc(37 * var(--u));letter-spacing:.01em">THE 2026</div><h1 class="mt" style="top:32.3594%;font-size:calc(90 * var(--u));letter-spacing:-.02em">Light</h1><div class="mt" style="top:39.6510%;font-size:calc(90 * var(--u));letter-spacing:-.02em">Summit</div><div class="mt pad" style="top:48.9813%;font-size:calc(32 * var(--u));font-weight:400;letter-spacing:.42em">MALAYSIA</div><div class="mt" style="top:63.4320%;font-size:calc(18.5 * var(--u))"><b>Date:</b></div><div class="mt" style="top:65.3070%;font-size:calc(18.5 * var(--u))">3 November 2026, Tuesday</div><div class="mt" style="top:71.5570%;font-size:calc(18.5 * var(--u))"><b>Business Summit:</b></div><div class="mt" style="top:73.4320%;font-size:calc(18.5 * var(--u))">Sunway Convention Centre, 1pm - 5pm</div></section>
 <section class="mb" style="aspect-ratio:480/770;background-image:radial-gradient(120% 60% at 50% 26%,rgba(30,64,150,.30),rgba(11,13,26,0) 70%)"><h2 class="mt" style="top:9.1896%;font-size:calc(56 * var(--u))">Ready</h2><div class="mt" style="top:17.2416%;font-size:calc(56 * var(--u))">For More?</div><div class="mt mq" style="top:29.7013%;font-size:calc(20 * var(--u));font-weight:600;width:73.3333%;line-height:1.16">Be there for the insights, strategies, and momentum that drive success.</div><div class="mt mq" style="top:35.1558%;font-size:calc(20 * var(--u));width:73.3333%;line-height:1.16">Join high-performing LifeWave Brand Partners for a powerful, high-impact Business Summit designed to elevate your vision, sharpen your strategy, and accelerate your success. Gain exclusive insights from LifeWave Founder and CEO David Schmidt, along with other key members of management. Connect with a community that is driven by ambition and results.</div><div class="mt mq" style="top:68.2727%;font-size:calc(20 * var(--u));width:73.3333%;line-height:1.16">This is more than an event—it’s your opportunity to hear more and gain business insights. Be in the room where growth happens.</div><a class="mpill" href="#reserve-summit" style="left:13.7500%;top:83.1169%;width:71.2500%;height:8.8312%;font-size:calc(29 * var(--u))">Secure Your Seat</a></section>
-<section class="mb" style="aspect-ratio:480/1120;background-image:url('assets/bg-m3.f9819412.webp')"><h2 class="mt" style="top:4.9621%;font-size:calc(45 * var(--u))">Keynote Speaker</h2><h3 class="mt" style="top:38.1482%;font-size:calc(56 * var(--u));left:51.3542%">David</h3><div class="mt" style="top:42.9250%;font-size:calc(56 * var(--u));left:51.3542%">Schmidt</div><div class="mt" style="top:48.8723%;font-size:calc(22 * var(--u));left:51.3542%;opacity:0.92">Founder &amp; CEO</div><a class="mtop blue" href="#mtop" style="left:76.6667%;top:47.5893%;width:13.7500%;height:5.8929%"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13.5 12 7l7 6.5M5 19l7-6.5 7 6.5"/></svg></a><h2 class="mt" style="top:57.6853%;font-size:calc(45 * var(--u))">Featured Speaker</h2><h3 class="mt" style="top:86.8491%;font-size:calc(26 * var(--u));left:23.0208%">Dr. Edward</h3><div class="mt mq" style="top:89.3842%;font-size:calc(11.5 * var(--u));font-weight:400;left:23.0208%;width:29.5833%;opacity:0.84;line-height:1.3">President,<br>LifeWave Asia Pacific</div><h3 class="mt" style="top:86.8491%;font-size:calc(26 * var(--u));left:51.4583%">KP Hau</h3><div class="mt mq" style="top:89.3842%;font-size:calc(11.5 * var(--u));font-weight:400;left:51.4583%;width:29.5833%;opacity:0.84;line-height:1.3">Country Manager,<br>LifeWave Malaysia<br>&amp; Singapore</div><h3 class="mt" style="top:86.8491%;font-size:calc(26 * var(--u));left:79.8958%">Coming</h3><div class="mt" style="top:89.7277%;font-size:calc(26 * var(--u));left:79.8958%">Soon</div></section>
+<section class="mb" style="aspect-ratio:480/1120;background-image:url('assets/bg-m3.bf71a5cf.webp')"><h2 class="mt" style="top:4.9621%;font-size:calc(45 * var(--u))">Keynote Speaker</h2><h3 class="mt" style="top:38.1482%;font-size:calc(56 * var(--u));left:51.3542%">David</h3><div class="mt" style="top:42.9250%;font-size:calc(56 * var(--u));left:51.3542%">Schmidt</div><div class="mt" style="top:48.8723%;font-size:calc(22 * var(--u));left:51.3542%;opacity:0.92">Founder &amp; CEO</div><h2 class="mt" style="top:57.6853%;font-size:calc(45 * var(--u))">Featured Speaker</h2><h3 class="mt" style="top:86.8491%;font-size:calc(26 * var(--u));left:23.0208%">Dr. Edward</h3><div class="mt mq" style="top:89.3842%;font-size:calc(11.5 * var(--u));font-weight:400;left:23.0208%;width:29.5833%;opacity:0.84;line-height:1.3">President,<br>LifeWave Asia Pacific</div><h3 class="mt" style="top:86.8491%;font-size:calc(26 * var(--u));left:51.4583%">KP Hau</h3><div class="mt mq" style="top:89.3842%;font-size:calc(11.5 * var(--u));font-weight:400;left:51.4583%;width:29.5833%;opacity:0.84;line-height:1.3">Country Manager,<br>LifeWave Malaysia<br>&amp; Singapore</div><h3 class="mt" style="top:86.8491%;font-size:calc(26 * var(--u));left:79.8958%">Coming</h3><div class="mt" style="top:89.7277%;font-size:calc(26 * var(--u));left:79.8958%">Soon</div></section>
 <section class="mb" style="aspect-ratio:480/640;background-image:url('assets/bg-kv4.c1a8cfbe.webp')"><div class="mt" style="top:14.0461%;font-size:calc(37 * var(--u));letter-spacing:.01em">THE 2026</div><h2 class="mt" id="mgala" style="top:19.2422%;font-size:calc(90 * var(--u));letter-spacing:-.02em">Light</h2><div class="mt" style="top:30.1797%;font-size:calc(90 * var(--u));letter-spacing:-.02em">Awards</div><div class="mt" style="top:44.1750%;font-size:calc(32 * var(--u));font-weight:400;letter-spacing:.42em">MALAYSIA</div><div class="mt" style="top:62.0230%;font-size:calc(18.5 * var(--u))"><b>Date:</b></div><div class="mt" style="top:64.8355%;font-size:calc(18.5 * var(--u))">3 November 2026, Tuesday</div><div class="mt" style="top:71.7105%;font-size:calc(18.5 * var(--u))"><b>Gala Dinner:</b></div><div class="mt" style="top:74.5230%;font-size:calc(18.5 * var(--u))">Sunway Hotel Ballroom, 7pm - 10pm</div><div class="mcue" style="left:47.2917%;top:81.5625%;width:5.4167%;height:9.6875%"><svg viewBox="0 0 26 62" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="1" y="1" width="24" height="38" rx="12"/><path d="M13 9v7"/><path d="M5 48l8 7 8-7"/></svg></div></section>
 <section class="mb" style="aspect-ratio:480/647;background-image:url('assets/bg-m5.24ed8e80.webp')"><h2 class="mt" style="top:9.7527%;font-size:calc(60 * var(--u))">Gala Dinner</h2><div class="mt mq" style="top:25.0696%;font-size:calc(20 * var(--u));font-weight:600;width:73.3333%;line-height:1.16">An evening of celebration to honour excellence and success</div><div class="mt mq" style="top:31.5611%;font-size:calc(20 * var(--u));width:73.3333%;line-height:1.16">Join us for the Light Awards Gala Dinner, a celebration of excellence and achievement. This unforgettable evening honours the people who are lighting the way forward. It is Malaysia's first gala dedicated to recognition, entertainment, and celebration, where you can connect with fellow LifeWave leaders and achievers.</div><div class="mt mq" style="top:64.0185%;font-size:calc(20 * var(--u));width:73.3333%;line-height:1.16">Don't miss your chance to experience the Light Awards Gala Dinner— limited seats available.</div><a class="mpill" href="#reserve-gala" style="left:13.7500%;top:84.3122%;width:71.2500%;height:10.5100%;font-size:calc(29 * var(--u))">Secure Your Seat</a></section>
-<section class="mb" style="aspect-ratio:480/1132;background-image:url('assets/bg-m6.ea20f7d8.webp')"><h2 class="mt" style="top:6.2937%;font-size:calc(47 * var(--u))">Featured</h2><div class="mt" style="top:10.7107%;font-size:calc(47 * var(--u))">Performance</div><div class="mt" style="top:19.7250%;font-size:calc(22.5 * var(--u));opacity:0.95">Position Title</div><h3 class="mt" style="top:21.7235%;font-size:calc(46 * var(--u))">Coming Soon</h3><div class="mt mq" style="top:27.4470%;font-size:calc(20 * var(--u));width:70.8333%;line-height:1.16">The celebrations continue with a special live performance during the Gala Dinner. Enjoy an evening filled with recognition, connection, and entertainment, with more details to be announced soon.</div><a class="mtop gold" href="#mtop" style="left:76.6667%;top:40.9011%;width:13.3333%;height:5.6537%"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13.5 12 7l7 6.5M5 19l7-6.5 7 6.5"/></svg></a><div class="mrule" style="left:8.3333%;top:53.2686%;width:83.3333%;height:0.0883%"></div><a class="mt l" href="support/" style="top:58.9614%;font-size:calc(15.5 * var(--u));font-weight:400;left:16.6667%;opacity:0.86">Customer Support</a><a class="mt l" href="accessibility/" style="top:58.9614%;font-size:calc(15.5 * var(--u));font-weight:400;left:50.7292%;opacity:0.86">Accessibility Statement</a><a class="mt l" href="code-of-ethics/" style="top:61.6999%;font-size:calc(15.5 * var(--u));font-weight:400;left:16.6667%;opacity:0.86">Code of Ethics</a><a class="mt l" href="terms/" style="top:61.6999%;font-size:calc(15.5 * var(--u));font-weight:400;left:50.7292%;opacity:0.86">Terms and Conditions</a><a class="mt l" href="privacy/" style="top:64.4826%;font-size:calc(15.5 * var(--u));font-weight:400;left:16.6667%;opacity:0.86">Privacy Policy</a><a class="mpill" href="#reserve" style="left:50.7292%;top:65.4594%;width:33.7500%;height:3.7544%;font-size:calc(18 * var(--u))">Reserve Now</a><div class="mt l" style="top:75.0391%;font-size:calc(15.5 * var(--u));font-weight:600;left:16.5625%">Join the Conversation</div><div class="msoc" style="left:52.0833%;top:74.2049%;width:31.2500%;height:1.9435%"><a href="https://www.facebook.com/LifeWaveGlobal" target="_blank" rel="noopener" aria-label="Facebook" style="width:calc(21 * var(--u));height:calc(21 * var(--u))"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.5-1.5h1.6V4.6c-.28-.04-1.24-.12-2.36-.12-2.33 0-3.94 1.43-3.94 4.05v2.26H7.9V14h2.4v8z"/></svg></a><a href="https://www.instagram.com/lifewaveglobal/" target="_blank" rel="noopener" aria-label="Instagram" style="width:calc(21 * var(--u));height:calc(21 * var(--u))"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.37-1.06-.42-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.21 8.8 2.2 12 2.2m0 3.35a4.45 4.45 0 1 1 0 8.9 4.45 4.45 0 0 1 0-8.9m0 7.34a2.89 2.89 0 1 0 0-5.78 2.89 2.89 0 0 0 0 5.78m5.66-7.56a1.04 1.04 0 1 1-2.08 0 1.04 1.04 0 0 1 2.08 0"/></svg></a><a href="https://www.youtube.com/@LifeWaveGlobal" target="_blank" rel="noopener" aria-label="YouTube" style="width:calc(21 * var(--u));height:calc(21 * var(--u))"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.72a2.47 2.47 0 0 0-1.74-1.75C19.35 5.1 12 5.1 12 5.1s-7.35 0-8.86.43A2.47 2.47 0 0 0 1.4 7.28C1 8.8 1 12 1 12s0 3.2.4 4.72a2.47 2.47 0 0 0 1.74 1.75c1.51.43 8.86.43 8.86.43s7.35 0 8.86-.43a2.47 2.47 0 0 0 1.74-1.75C23 15.2 23 12 23 12M9.75 15.02V8.98L15.5 12z"/></svg></a><a href="https://x.com/lifewaveglobal" target="_blank" rel="noopener" aria-label="X" style="width:calc(21 * var(--u));height:calc(21 * var(--u))"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.3 8.34L23.2 22h-6.6l-5.18-6.77L5.5 22H2.4l7.8-8.92L1.2 2h6.77l4.68 6.19zm-1.16 18h1.7L7.34 3.9H5.5z"/></svg></a><a href="https://www.linkedin.com/company/lifewave" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:calc(21 * var(--u));height:calc(21 * var(--u))"><svg viewBox="0 0 24 24"><path d="M6.94 5A1.94 1.94 0 1 1 3.06 5a1.94 1.94 0 0 1 3.88 0M3.32 8.4h3.24V22H3.32zM9.1 8.4h3.1v1.86h.05c.43-.82 1.49-1.68 3.06-1.68 3.27 0 3.87 2.15 3.87 4.95V22h-3.23v-6.02c0-1.44-.03-3.29-2-3.29-2.01 0-2.32 1.57-2.32 3.19V22H9.1z"/></svg></a></div><a class="mlogo" href="#mtop" style="left:31.4583%;top:81.6784%;width:37.0833%;height:7.1378%"><img src="assets/logo-mark.852a4b2a.webp" alt="LifeWave" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:contain"></a><div class="mt" style="top:90.7926%;font-size:calc(13.5 * var(--u));font-weight:400;opacity:0.7">&copy; LifeWave, Inc. 2026 All rights reserved</div><div class="mt" id="mcontact" style="top:93.7962%;font-size:calc(13.5 * var(--u));font-weight:400;opacity:0.86">Questions? <a href="mailto:summit@lwapac.com" style="color:#8CC6FF">summit@lwapac.com</a></div></section>
+<section class="mb" style="aspect-ratio:480/1132;background-image:url('assets/bg-m6.b0a801bc.webp')"><h2 class="mt" style="top:6.2937%;font-size:calc(47 * var(--u))">Featured</h2><div class="mt" style="top:10.7107%;font-size:calc(47 * var(--u))">Performance</div><div class="mt" style="top:19.7250%;font-size:calc(22.5 * var(--u));opacity:0.95">Position Title</div><h3 class="mt" style="top:21.7235%;font-size:calc(46 * var(--u))">Coming Soon</h3><div class="mt mq" style="top:27.4470%;font-size:calc(20 * var(--u));width:70.8333%;line-height:1.16">The celebrations continue with a special live performance during the Gala Dinner. Enjoy an evening filled with recognition, connection, and entertainment, with more details to be announced soon.</div><div class="mrule" style="left:8.3333%;top:53.2686%;width:83.3333%;height:0.0883%"></div><a class="mt l" href="support/" style="top:58.9614%;font-size:calc(15.5 * var(--u));font-weight:400;left:16.6667%;opacity:0.86">Customer Support</a><a class="mt l" href="accessibility/" style="top:58.9614%;font-size:calc(15.5 * var(--u));font-weight:400;left:50.7292%;opacity:0.86">Accessibility Statement</a><a class="mt l" href="code-of-ethics/" style="top:61.6999%;font-size:calc(15.5 * var(--u));font-weight:400;left:16.6667%;opacity:0.86">Code of Ethics</a><a class="mt l" href="terms/" style="top:61.6999%;font-size:calc(15.5 * var(--u));font-weight:400;left:50.7292%;opacity:0.86">Terms and Conditions</a><a class="mt l" href="privacy/" style="top:64.4826%;font-size:calc(15.5 * var(--u));font-weight:400;left:16.6667%;opacity:0.86">Privacy Policy</a><a class="mpill" href="#reserve" style="left:50.7292%;top:65.4594%;width:33.7500%;height:3.7544%;font-size:calc(18 * var(--u))">Reserve Now</a><div class="mt l" style="top:75.0391%;font-size:calc(15.5 * var(--u));font-weight:600;left:16.5625%">Join the Conversation</div><div class="msoc" style="left:52.0833%;top:74.2049%;width:31.2500%;height:1.9435%"><a href="https://www.facebook.com/LifeWaveGlobal" target="_blank" rel="noopener" aria-label="Facebook" style="width:calc(21 * var(--u));height:calc(21 * var(--u))"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.5-1.5h1.6V4.6c-.28-.04-1.24-.12-2.36-.12-2.33 0-3.94 1.43-3.94 4.05v2.26H7.9V14h2.4v8z"/></svg></a><a href="https://www.instagram.com/lifewaveglobal/" target="_blank" rel="noopener" aria-label="Instagram" style="width:calc(21 * var(--u));height:calc(21 * var(--u))"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.37-1.06-.42-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.21 8.8 2.2 12 2.2m0 3.35a4.45 4.45 0 1 1 0 8.9 4.45 4.45 0 0 1 0-8.9m0 7.34a2.89 2.89 0 1 0 0-5.78 2.89 2.89 0 0 0 0 5.78m5.66-7.56a1.04 1.04 0 1 1-2.08 0 1.04 1.04 0 0 1 2.08 0"/></svg></a><a href="https://www.youtube.com/@LifeWaveGlobal" target="_blank" rel="noopener" aria-label="YouTube" style="width:calc(21 * var(--u));height:calc(21 * var(--u))"><svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.72a2.47 2.47 0 0 0-1.74-1.75C19.35 5.1 12 5.1 12 5.1s-7.35 0-8.86.43A2.47 2.47 0 0 0 1.4 7.28C1 8.8 1 12 1 12s0 3.2.4 4.72a2.47 2.47 0 0 0 1.74 1.75c1.51.43 8.86.43 8.86.43s7.35 0 8.86-.43a2.47 2.47 0 0 0 1.74-1.75C23 15.2 23 12 23 12M9.75 15.02V8.98L15.5 12z"/></svg></a><a href="https://x.com/lifewaveglobal" target="_blank" rel="noopener" aria-label="X" style="width:calc(21 * var(--u));height:calc(21 * var(--u))"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.3 8.34L23.2 22h-6.6l-5.18-6.77L5.5 22H2.4l7.8-8.92L1.2 2h6.77l4.68 6.19zm-1.16 18h1.7L7.34 3.9H5.5z"/></svg></a><a href="https://www.linkedin.com/company/lifewave" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:calc(21 * var(--u));height:calc(21 * var(--u))"><svg viewBox="0 0 24 24"><path d="M6.94 5A1.94 1.94 0 1 1 3.06 5a1.94 1.94 0 0 1 3.88 0M3.32 8.4h3.24V22H3.32zM9.1 8.4h3.1v1.86h.05c.43-.82 1.49-1.68 3.06-1.68 3.27 0 3.87 2.15 3.87 4.95V22h-3.23v-6.02c0-1.44-.03-3.29-2-3.29-2.01 0-2.32 1.57-2.32 3.19V22H9.1z"/></svg></a></div><a class="mlogo" href="#mtop" style="left:31.4583%;top:81.6784%;width:37.0833%;height:7.1378%"><img src="assets/logo-mark.852a4b2a.webp" alt="LifeWave" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:contain"></a><div class="mt" style="top:90.7926%;font-size:calc(13.5 * var(--u));font-weight:400;opacity:0.7">&copy; LifeWave, Inc. 2026 All rights reserved</div><div class="mt" id="mcontact" style="top:93.7962%;font-size:calc(13.5 * var(--u));font-weight:400;opacity:0.86">Questions? <a href="mailto:summit@lwapac.com" style="color:#8CC6FF">summit@lwapac.com</a></div></section>
 </div>
 <script>
 (function(){var m=document.getElementById('mtop'),b=document.getElementById('mham');
@@ -254,6 +325,41 @@ document.getElementById('mdraw').addEventListener('click',function(e){
   if(e.target.tagName==='A')set(false)});
 document.addEventListener('keydown',function(e){
   if(e.key==='Escape'&&m.classList.contains('open'))set(false)});
+
+/* Motion is opt-in from here: the markup is legible without it, and this
+   only ever adds classes. */
+m.classList.add('anim');
+var bands=[].slice.call(m.querySelectorAll('.mb'));
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in');
+      io.unobserve(e.target); } });
+  },{rootMargin:'0px 0px -12% 0px',threshold:.06});
+  bands.forEach(function(b){io.observe(b)});
+} else { bands.forEach(function(b){b.classList.add('in')}); }
+
+/* The floating back-to-top: appears once the hero is behind you, carries
+   scroll progress on its ring, and takes the gold palette over the gold
+   half of the page. */
+var fab=document.getElementById('mfab'), hero=bands[0], gold=bands[3];
+var tick=false;
+function frame(){
+  tick=false;
+  var y=window.scrollY||window.pageYOffset,
+      max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
+  fab.classList.toggle('on', y > (hero?hero.offsetHeight:600)*.6);
+  fab.style.setProperty('--p',(y/max).toFixed(4));
+  fab.classList.toggle('gold', !!gold && y + window.innerHeight*.5 > gold.offsetTop);
+}
+addEventListener('scroll',function(){
+  if(!tick){tick=true;requestAnimationFrame(frame)}
+},{passive:true});
+addEventListener('resize',frame,{passive:true});
+frame();
+fab.addEventListener('click',function(){
+  var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  window.scrollTo({top:0,behavior:rm?'auto':'smooth'});
+});
 })();
 </script>
 <div class="toast" id="toast" role="status" aria-live="polite">Registration opens soon — stay tuned!</div>
