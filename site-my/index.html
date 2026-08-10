@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.lwapac.com/assets/og.047f01e4.jpg">
 <link rel="preload" href="assets/cofosans.29de76e0.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" imagesrcset="assets/bg-01-1920.35e59191.webp 1920w, assets/bg-01-4000.3b4e276d.webp 4000w" imagesizes="100vw">
+<link rel="preload" as="image" imagesrcset="assets/bg-01-1920.56e00cd3.webp 1920w, assets/bg-01-4000.84ecbe28.webp 4000w" imagesizes="100vw">
 <style>
 @font-face{font-family:'CoFo Sans';src:url('assets/cofosans.29de76e0.woff2') format('woff2');font-weight:100 900;font-display:swap}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -33,34 +33,25 @@ body{background:#0F101E;font-family:'CoFo Sans',system-ui,sans-serif}
 .tlink::after{content:"";position:absolute;left:50%;right:50%;bottom:-.35em;height:2px;background:currentColor;opacity:0;transition:left .22s,right .22s,opacity .22s}
 .tlink:hover::after{left:-.15em;right:-.15em;opacity:.9}
 .tlink:hover{opacity:1!important;color:#BFE0FF}
-.tlink:focus-visible,.pill:focus-visible,.social a:focus-visible{outline:2px solid #7FBDFF;outline-offset:4px;border-radius:4px}
+.tlink:focus-visible,.pill:focus-visible,.totop:focus-visible,.shit:focus-visible,.hit:focus-visible{outline:2px solid #7FBDFF;outline-offset:4px;border-radius:4px}
 .wm{white-space:nowrap}
-.pill{position:absolute;z-index:8;background:#fff;color:#20233F;border-radius:1000px;display:flex;align-items:center;justify-content:center;font-weight:600;font-family:'CoFo Sans',sans-serif;text-decoration:none;transition:transform .2s,box-shadow .25s}
-.pill{cursor:pointer}
-.pill:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 46px rgba(120,190,255,.55)}
-.pill:active{transform:translateY(-1px) scale(.99)}
-.social a{transition:transform .18s,opacity .18s}
-.social a:hover{transform:translateY(-2px) scale(1.12);opacity:1}
-.panel{position:absolute;z-index:4;border-radius:.7vw;overflow:hidden;
-  background:radial-gradient(90% 55% at 50% 78%,rgba(90,160,245,.55) 0%,rgba(60,120,220,.28) 45%,rgba(0,0,0,0) 100%),linear-gradient(180deg,rgb(28,34,64) 0%,rgb(40,50,95) 22%,rgb(46,80,145) 45%,rgb(54,105,185) 62%,rgb(42,92,185) 80%,rgb(24,44,102) 92%,rgb(9,15,67) 100%);
-  box-shadow:inset 0 0 0 1px rgba(140,195,255,.22),0 0 2.2vw rgba(40,110,220,.28)}
-.panel.big{background:radial-gradient(95% 45% at 50% 22%,rgba(90,165,245,.5) 0%,rgba(60,125,220,.25) 50%,rgba(0,0,0,0) 100%),linear-gradient(180deg,rgb(24,49,117) 0%,rgb(56,122,212) 20%,rgb(44,98,185) 30%,rgb(30,58,115) 52%,rgb(28,48,95) 72%,rgb(24,42,88) 87%,rgb(22,29,53) 100%)}
-.panel .fl{position:absolute;top:-2%;bottom:-2%;width:.26vw;background:linear-gradient(transparent 5%,rgba(210,240,255,.95) 50%,transparent 95%);filter:blur(2px);box-shadow:0 0 1.3vw .3vw rgba(120,190,255,.55)}
-.panel .fl.a{left:2.5%}.panel .fl.b{right:2.5%}
-.panel .sp{position:absolute;inset:0;background-image:radial-gradient(1.5px 1.5px at 18% 22%,rgba(255,255,255,.95),transparent),radial-gradient(1px 1px at 72% 14%,rgba(190,225,255,.9),transparent),radial-gradient(2px 2px at 85% 38%,rgba(255,255,255,.85),transparent),radial-gradient(1px 1px at 30% 48%,rgba(170,215,255,.8),transparent),radial-gradient(1.5px 1.5px at 60% 60%,rgba(255,255,255,.75),transparent),radial-gradient(2px 2px at 44% 82%,rgba(255,255,255,.9),transparent);background-repeat:no-repeat}
-.port{position:absolute;z-index:5;object-fit:contain;object-position:top center;filter:drop-shadow(0 .6vw 1.5vw rgba(0,0,0,.45))}
+/* Every pill, disc and icon below is already painted in the plate. The
+   elements here sit exactly on top to carry the label, the link and the
+   hover state - so hover may grow but must never move, or the painted twin
+   would peek out from underneath. */
+.pill{position:absolute;z-index:8;background:#fff;color:#20233F;border-radius:1000px;display:flex;align-items:center;justify-content:center;font-weight:600;font-family:'CoFo Sans',sans-serif;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .25s}
+.pill:hover{transform:scale(1.035);box-shadow:0 0 3.2vw .4vw rgba(150,205,255,.55)}
+.pill:active{transform:scale(1.01)}
 .portw{position:absolute;z-index:5;overflow:hidden}
 .portw img{position:absolute;display:block;filter:drop-shadow(0 .6vw 1.5vw rgba(0,0,0,.45))}
-.cue{position:absolute;z-index:6;width:2.2917%;height:0.8210%;border:2px solid;border-radius:1.2vw;display:flex;justify-content:center}
-.cuechev{position:absolute;z-index:6;width:1.5625%;height:0.3558%}
-.cuechev svg{width:100%;height:100%}
-.cue span{width:.26vw;height:.9%;min-height:8px;border-radius:3px;margin-top:14%;animation:sc 1.8s ease-in-out infinite}
-@keyframes sc{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
-.totop{position:absolute;z-index:8;background:#20233F;border:1px solid rgba(120,180,255,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 2vw rgba(90,150,255,.4)}
-.totop svg{width:38%;height:38%}
-.social{position:absolute;z-index:8;display:flex;gap:2.0312vw;align-items:center;height:0.6021%}
-.social svg{width:1.7708vw;height:auto;min-width:20px;display:block}
-.social a{opacity:.92}.social a:hover{opacity:1}
+.totop,.shit,.hit{position:absolute;z-index:8;display:block;border-radius:50%;
+  transition:background .2s,box-shadow .2s}
+.hit{border-radius:6px}
+.totop:hover{background:radial-gradient(circle,rgba(255,255,255,.18),rgba(255,255,255,0) 72%)}
+.totop.blue:hover{box-shadow:0 0 3vw .6vw rgba(96,170,255,.45)}
+.totop.gold:hover{box-shadow:0 0 3vw .6vw rgba(245,204,138,.45)}
+.shit{border-radius:10px}
+.shit:hover{background:rgba(255,255,255,.14);box-shadow:0 0 1.2vw .2vw rgba(255,255,255,.12)}
 .toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(20px);background:rgba(15,22,50,.95);color:#fff;font:500 15px/1.4 'CoFo Sans',sans-serif;padding:13px 26px;border-radius:100px;border:1px solid rgba(130,190,255,.35);box-shadow:0 10px 40px rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:.35s;z-index:99}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
@@ -171,86 +162,80 @@ body{background:#0F101E;font-family:'CoFo Sans',system-ui,sans-serif}
 </head>
 <body>
 <div class="stage" id="top">
-<img class="bg" src="assets/bg-01-1920.35e59191.webp" srcset="assets/bg-01-1920.35e59191.webp 1920w, assets/bg-01-4000.3b4e276d.webp 4000w" sizes="100vw" width="4000" height="2250" fetchpriority="high" decoding="async" alt="" draggable="false">
-<img class="bg" src="assets/bg-02-1920.83e475bf.webp" srcset="assets/bg-02-1920.83e475bf.webp 1920w, assets/bg-02-4000.9132dd4b.webp 4000w" sizes="100vw" width="4000" height="2250" loading="lazy" decoding="async" alt="" draggable="false">
-<img class="bg" src="assets/bg-03-1920.20a53320.webp" srcset="assets/bg-03-1920.20a53320.webp 1920w, assets/bg-03-4000.9f491f7d.webp 4000w" sizes="100vw" width="4000" height="2250" loading="lazy" decoding="async" alt="" draggable="false">
-<img class="bg" src="assets/bg-04-1920.3710cfc3.webp" srcset="assets/bg-04-1920.3710cfc3.webp 1920w, assets/bg-04-4000.f4df11d7.webp 4000w" sizes="100vw" width="4000" height="2250" loading="lazy" decoding="async" alt="" draggable="false">
-<img class="bg" src="assets/bg-05-1920.e6307da1.webp" srcset="assets/bg-05-1920.e6307da1.webp 1920w, assets/bg-05-4000.78de473e.webp 4000w" sizes="100vw" width="4000" height="2250" loading="lazy" decoding="async" alt="" draggable="false">
-<img class="bg" src="assets/bg-06-1920.02f2b50a.webp" srcset="assets/bg-06-1920.02f2b50a.webp 1920w, assets/bg-06-4000.4d75d48b.webp 4000w" sizes="100vw" width="4000" height="2250" loading="lazy" decoding="async" alt="" draggable="false">
-<img class="bg" src="assets/bg-07-1920.ae83f80a.webp" srcset="assets/bg-07-1920.ae83f80a.webp 1920w, assets/bg-07-4000.54e9836a.webp 4000w" sizes="100vw" width="4000" height="1723" loading="lazy" decoding="async" alt="" draggable="false">
-<div class="panel big" style="left:8.9062%;top:32.4986%;width:29.5833%;height:9.7838%"><span class="fl a"></span><span class="fl b"></span><span class="sp"></span></div><div class="panel" style="left:43.3854%;top:35.6185%;width:15.9896%;height:7.0060%"><span class="fl a"></span><span class="fl b"></span><span class="sp"></span></div><div class="panel" style="left:59.6354%;top:35.6185%;width:15.9896%;height:7.0060%"><span class="fl a"></span><span class="fl b"></span><span class="sp"></span></div><div class="panel" style="left:75.9375%;top:35.6185%;width:16.2500%;height:7.0060%"><span class="fl a"></span><span class="fl b"></span><span class="sp"></span></div>
-<div class="portw" style="left:8.9062%;top:32.0471%;width:29.5833%;height:10.2354%"><img src="assets/david.83e10617.webp" loading="lazy" decoding="async" alt="David Schmidt, LifeWave Founder and CEO" style="left:0.000%;top:0.000%;width:109.331%"></div><div class="portw" style="left:43.3854%;top:33.4975%;width:15.9896%;height:6.7323%"><img src="assets/edward.3e2d669e.webp" loading="lazy" decoding="async" alt="Dr. Edward, President, LifeWave Asia Pacific" style="left:-29.902%;top:0.000%;width:129.316%;transform:scaleX(-1)"></div><div class="portw" style="left:59.6354%;top:33.3470%;width:15.9896%;height:6.8829%"><img src="assets/kphau.c172e672.webp" loading="lazy" decoding="async" alt="KP Hau, Country Manager, LifeWave Malaysia and Singapore" style="left:-23.550%;top:-0.497%;width:134.202%"></div><img class="port" src="assets/coming.545e954a.webp" loading="lazy" decoding="async" alt="" style="left:75.5729%;top:33.4565%;width:16.9792%;height:6.8008%;-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 40%,rgba(0,0,0,.55) 75%,rgba(0,0,0,.35) 100%);mask-image:linear-gradient(180deg,#000 0%,#000 40%,rgba(0,0,0,.55) 75%,rgba(0,0,0,.35) 100%)">
-<a class="t tlink" href="#top" style="top:1.7251%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:400;left:50.0083%;white-space:nowrap;border-bottom:2px solid #fff;padding-bottom:6px">Summit</a>
-<a class="t tlink" href="#gala" style="top:1.7251%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:400;left:57.7760%;white-space:nowrap;letter-spacing:0.0138vw;letter-spacing:0.0138cqw">Gala Dinner</a>
-<a class="t tlink" href="https://www.lifewave.com/about" target="_blank" rel="noopener" style="top:1.7251%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:400;left:67.1469%;white-space:nowrap">About Us</a>
-<a class="t tlink" href="#contact" style="top:1.7251%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:400;left:74.7552%;white-space:nowrap">Contact Us</a>
-<h1 class="t wm" style="top:5.4320%;font-size:9.4792vw;font-size:9.4792cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.3906vw));white-space:nowrap;letter-spacing:-0.2407vw;letter-spacing:-0.2407cqw">Light Summit</h1>
-<div class="t wm" style="top:8.2183%;font-size:2.9688vw;font-size:2.9688cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.0781vw));white-space:nowrap;letter-spacing:.42em;padding-left:.42em">MALAYSIA</div>
+<img class="bg" src="assets/bg-01-1920.56e00cd3.webp" srcset="assets/bg-01-1920.56e00cd3.webp 1920w, assets/bg-01-4000.84ecbe28.webp 4000w" sizes="100vw" width="4000" height="2250" fetchpriority="high" decoding="async" alt="" draggable="false">
+<img class="bg" src="assets/bg-02-1920.d4667116.webp" srcset="assets/bg-02-1920.d4667116.webp 1920w, assets/bg-02-4000.7f5a03bb.webp 4000w" sizes="100vw" width="4000" height="2250" loading="lazy" decoding="async" alt="" draggable="false">
+<img class="bg" src="assets/bg-03-1920.c6f27a6f.webp" srcset="assets/bg-03-1920.c6f27a6f.webp 1920w, assets/bg-03-4000.7f213c56.webp 4000w" sizes="100vw" width="4000" height="2250" loading="lazy" decoding="async" alt="" draggable="false">
+<img class="bg" src="assets/bg-04-1920.13f535c4.webp" srcset="assets/bg-04-1920.13f535c4.webp 1920w, assets/bg-04-4000.408f6385.webp 4000w" sizes="100vw" width="4000" height="2250" loading="lazy" decoding="async" alt="" draggable="false">
+<img class="bg" src="assets/bg-05-1920.de9e3dd4.webp" srcset="assets/bg-05-1920.de9e3dd4.webp 1920w, assets/bg-05-4000.72c2124a.webp 4000w" sizes="100vw" width="4000" height="2250" loading="lazy" decoding="async" alt="" draggable="false">
+<img class="bg" src="assets/bg-06-1920.8a056032.webp" srcset="assets/bg-06-1920.8a056032.webp 1920w, assets/bg-06-4000.6cefa64a.webp 4000w" sizes="100vw" width="4000" height="2250" loading="lazy" decoding="async" alt="" draggable="false">
+<img class="bg" src="assets/bg-07-1920.f2727578.webp" srcset="assets/bg-07-1920.f2727578.webp 1920w, assets/bg-07-4000.744b0dbf.webp 4000w" sizes="100vw" width="4000" height="1725" loading="lazy" decoding="async" alt="" draggable="false">
+
+<a class="t tlink" href="#top" style="top:1.7251%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:300;left:35.2604%;white-space:nowrap">Summit</a>
+<a class="t tlink" href="#gala" style="top:1.7251%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:300;left:47.2396%;white-space:nowrap">Gala Dinner</a>
+<a class="t tlink" href="https://www.lifewave.com/about" target="_blank" rel="noopener" style="top:1.7251%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:300;left:60.6771%;white-space:nowrap">About Us</a>
+<a class="t tlink" href="#contact" style="top:1.7251%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:300;left:73.1771%;white-space:nowrap">Contact Us</a>
+<div class="t wm" style="top:4.6219%;font-size:3.2292vw;font-size:3.2292cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.4948vw));white-space:nowrap">The 2026</div>
+<h1 class="t wm" style="top:5.4320%;font-size:9.4792vw;font-size:9.4792cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.4167vw));white-space:nowrap;letter-spacing:-0.2502vw;letter-spacing:-0.2502cqw">Light Summit</h1>
+<div class="t wm" style="top:8.2046%;font-size:2.9688vw;font-size:2.9688cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.0260vw));white-space:nowrap;letter-spacing:.42em;padding-left:.42em">MALAYSIA</div>
 <div class="t" style="top:10.2806%;font-size:1.7969vw;font-size:1.7969cqw;font-weight:300;left:50%;transform:translateX(-50%);white-space:nowrap;letter-spacing:0.0027vw;letter-spacing:0.0027cqw"><b>Date:</b> 3 November 2026, Tuesday</div>
-<div class="t" style="top:11.1837%;font-size:1.7969vw;font-size:1.7969cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.0234vw));white-space:nowrap;letter-spacing:0.0051vw;letter-spacing:0.0051cqw"><b>Business Summit:</b> Sunway Convention Centre, 1pm - 5pm</div>
+<div class="t" style="top:11.1701%;font-size:1.7969vw;font-size:1.7969cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.0495vw));white-space:nowrap;letter-spacing:0.0030vw;letter-spacing:0.0030cqw"><b>Business Summit:</b> Sunway Convention Centre, 1pm - 5pm</div>
 <h2 class="t" style="top:16.8927%;font-size:5.8333vw;font-size:5.8333cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.2604vw));white-space:nowrap;letter-spacing:-0.2865vw;letter-spacing:-0.2865cqw">Ready For More?</h2>
-<div class="t body" style="top:18.7451%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:600;left:50%;transform:translateX(calc(-50% + -0.1224vw));white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">Be there for the insights, strategies, and momentum that drive success.</div>
-<div class="t body" style="top:19.3609%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.0911vw));white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">Join high-performing LifeWave Brand Partners for a powerful, high-impact</div>
-<div class="t body" style="top:19.9767%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.0703vw));white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">Business Summit designed to elevate your vision, sharpen your strategy, and</div>
-<div class="t body" style="top:20.5924%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.0385vw));white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">accelerate your success. Gain exclusive insights from LifeWave Founder and</div>
-<div class="t body" style="top:21.2082%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.0964vw));white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">CEO David Schmidt, along with other key members of management.</div>
-<div class="t body" style="top:21.8240%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.0599vw));white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">Connect with a community that is driven by ambition and results.</div>
-<div class="t body" style="top:23.0555%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.1042vw));white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">This is more than an event—it’s your opportunity to hear more and gain</div>
-<div class="t body" style="top:23.6713%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.0599vw));white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">business insights. Be in the room where growth happens.</div>
-<h2 class="t" style="top:30.8310%;font-size:4.0625vw;font-size:4.0625cqw;font-weight:300;left:9.5990%;white-space:nowrap;letter-spacing:-0.1161vw;letter-spacing:-0.1161cqw">Keynote Speaker</h2>
-<h2 class="t" style="top:30.8310%;font-size:4.0625vw;font-size:4.0625cqw;font-weight:300;left:52.4896%;white-space:nowrap;letter-spacing:-0.1167vw;letter-spacing:-0.1167cqw">Featured Speaker</h2>
-<h3 class="t" style="top:39.0632%;font-size:4.8177vw;font-size:4.8177cqw;font-weight:300;left:23.8021%;transform:translateX(-50%);white-space:nowrap;letter-spacing:-0.1562vw;letter-spacing:-0.1562cqw">David</h3>
-<div class="t" style="top:40.2673%;font-size:4.8177vw;font-size:4.8177cqw;font-weight:300;left:23.8281%;transform:translateX(-50%);white-space:nowrap;letter-spacing:-0.0955vw;letter-spacing:-0.0955cqw">Schmidt</div>
-<h3 class="t" style="top:40.5954%;font-size:2.9323vw;font-size:2.9323cqw;font-weight:300;left:45.0104%;white-space:nowrap;letter-spacing:-0.0694vw;letter-spacing:-0.0694cqw">Dr. Edward</h3>
-<h3 class="t" style="top:40.5954%;font-size:2.9323vw;font-size:2.9323cqw;font-weight:300;left:62.6146%;white-space:nowrap;letter-spacing:-0.0438vw;letter-spacing:-0.0438cqw">KP Hau</h3>
-<h3 class="t" style="top:40.5817%;font-size:2.9323vw;font-size:2.9323cqw;font-weight:300;left:78.5833%;white-space:nowrap;letter-spacing:-0.0375vw;letter-spacing:-0.0375cqw">Coming</h3>
-<div class="t" style="top:41.7383%;font-size:2.1354vw;font-size:2.1354cqw;font-weight:300;left:23.7865%;transform:translateX(-50%);white-space:nowrap;letter-spacing:-0.0738vw;letter-spacing:-0.0738cqw">Founder &amp; CEO</div>
-<div class="t" style="top:41.3206%;font-size:2.9323vw;font-size:2.9323cqw;font-weight:300;left:80.1042%;white-space:nowrap">Soon</div>
-<div class="t" style="top:41.4734%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:62.3552%;white-space:nowrap;letter-spacing:-0.0279vw;letter-spacing:-0.0279cqw">Country Manager,</div>
-<div class="t" style="top:41.5829%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:48.9073%;white-space:nowrap">President,</div>
-<div class="t" style="top:41.8155%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:62.0844%;white-space:nowrap;letter-spacing:-0.0352vw;letter-spacing:-0.0352cqw">LifeWave Malaysia</div>
-<div class="t" style="top:41.8839%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:45.8885%;white-space:nowrap;letter-spacing:-0.0331vw;letter-spacing:-0.0331cqw">LifeWave Asia Pacific</div>
-<div class="t" style="top:42.1576%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:63.7521%;white-space:nowrap">&amp; Singapore</div>
-<div class="t" style="top:53.7941%;font-size:1.8073vw;font-size:1.8073cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + 0.0260vw));white-space:nowrap;letter-spacing:0.0091vw;letter-spacing:0.0091cqw"><b>Date:</b> 3 November 2026, Tuesday</div>
-<div class="t" style="top:54.6836%;font-size:1.8073vw;font-size:1.8073cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + 0.0260vw));white-space:nowrap;letter-spacing:0.0061vw;letter-spacing:0.0061cqw"><b>Gala Dinner:</b> Sunway Hotel Ballroom, 7pm - 10pm</div>
-<h2 class="t wm" style="top:47.4134%;font-size:9.4792vw;font-size:9.4792cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.3958vw));white-space:nowrap;letter-spacing:-0.02em">Light Awards</h2>
+<div class="t" style="top:18.9641%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:600;left:50%;transform:translateX(calc(-50% + -0.1484vw));white-space:nowrap;letter-spacing:-0.0499vw;letter-spacing:-0.0499cqw">Be there for the insights, strategies, and momentum that drive success.</div>
+<div class="t" style="top:19.5251%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.1172vw));white-space:nowrap;letter-spacing:-0.0679vw;letter-spacing:-0.0679cqw">Join high-performing LifeWave Brand Partners for a powerful, high-impact</div>
+<div class="t" style="top:20.0861%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.0443vw));white-space:nowrap;letter-spacing:-0.0681vw;letter-spacing:-0.0681cqw">Business Summit designed to elevate your vision, sharpen your strategy, and</div>
+<div class="t" style="top:20.6472%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.0385vw));white-space:nowrap;letter-spacing:-0.0711vw;letter-spacing:-0.0711cqw">accelerate your success. Gain exclusive insights from LifeWave Founder and</div>
+<div class="t" style="top:21.2082%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.0964vw));white-space:nowrap;letter-spacing:-0.0680vw;letter-spacing:-0.0680cqw">CEO David Schmidt, along with other key members of management.</div>
+<div class="t" style="top:21.7692%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.0599vw));white-space:nowrap;letter-spacing:-0.0693vw;letter-spacing:-0.0693cqw">Connect with a community that is driven by ambition and results.</div>
+<div class="t" style="top:22.8913%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.0781vw));white-space:nowrap;letter-spacing:-0.0684vw;letter-spacing:-0.0684cqw">This is more than an event—it’s your opportunity to hear more and gain</div>
+<div class="t" style="top:23.4523%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.0339vw));white-space:nowrap;letter-spacing:-0.0653vw;letter-spacing:-0.0653cqw">business insights. Be in the room where growth happens.</div>
+<h2 class="t" style="top:30.8173%;font-size:4.0625vw;font-size:4.0625cqw;font-weight:300;left:9.6510%;white-space:nowrap;letter-spacing:-0.1161vw;letter-spacing:-0.1161cqw">Keynote Speaker</h2>
+<h2 class="t" style="top:30.8173%;font-size:4.0625vw;font-size:4.0625cqw;font-weight:300;left:52.5156%;white-space:nowrap;letter-spacing:-0.1167vw;letter-spacing:-0.1167cqw">Featured Speaker</h2>
+<h3 class="t" style="top:39.0495%;font-size:4.8177vw;font-size:4.8177cqw;font-weight:300;left:23.8542%;transform:translateX(-50%);white-space:nowrap;letter-spacing:-0.1562vw;letter-spacing:-0.1562cqw">David</h3>
+<div class="t" style="top:40.2537%;font-size:4.8177vw;font-size:4.8177cqw;font-weight:300;left:23.8802%;transform:translateX(-50%);white-space:nowrap;letter-spacing:-0.0955vw;letter-spacing:-0.0955cqw">Schmidt</div>
+<h3 class="t" style="top:41.3206%;font-size:2.9323vw;font-size:2.9323cqw;font-weight:300;left:45.0104%;white-space:nowrap;letter-spacing:-0.0694vw;letter-spacing:-0.0694cqw">Dr. Edward</h3>
+<h3 class="t" style="top:41.3343%;font-size:2.9323vw;font-size:2.9323cqw;font-weight:300;left:62.6667%;white-space:nowrap;letter-spacing:-0.0438vw;letter-spacing:-0.0438cqw">KP Hau</h3>
+<h3 class="t" style="top:41.3206%;font-size:2.9323vw;font-size:2.9323cqw;font-weight:300;left:78.5833%;white-space:nowrap;letter-spacing:-0.0375vw;letter-spacing:-0.0375cqw">Coming</h3>
+<div class="t" style="top:41.7520%;font-size:2.1354vw;font-size:2.1354cqw;font-weight:300;left:23.7865%;transform:translateX(-50%);white-space:nowrap;letter-spacing:-0.0738vw;letter-spacing:-0.0738cqw">Founder &amp; CEO</div>
+<div class="t" style="top:42.0595%;font-size:2.9323vw;font-size:2.9323cqw;font-weight:300;left:80.1562%;white-space:nowrap">Soon</div>
+<div class="t" style="top:42.1986%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:62.3552%;white-space:nowrap;letter-spacing:-0.0279vw;letter-spacing:-0.0279cqw">Country Manager,</div>
+<div class="t" style="top:42.3081%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:48.9073%;white-space:nowrap">President,</div>
+<div class="t" style="top:42.5407%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:62.1365%;white-space:nowrap;letter-spacing:-0.0352vw;letter-spacing:-0.0352cqw">LifeWave Malaysia</div>
+<div class="t" style="top:42.6091%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:45.8885%;white-space:nowrap;letter-spacing:-0.0331vw;letter-spacing:-0.0331cqw">LifeWave Asia Pacific</div>
+<div class="t" style="top:42.8828%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:63.7521%;white-space:nowrap">&amp; Singapore</div>
+<div class="t" style="top:53.7941%;font-size:1.8073vw;font-size:1.8073cqw;font-weight:300;left:50%;transform:translateX(-50%);white-space:nowrap;letter-spacing:0.0091vw;letter-spacing:0.0091cqw"><b>Date:</b> 3 November 2026, Tuesday</div>
+<div class="t" style="top:54.6836%;font-size:1.8073vw;font-size:1.8073cqw;font-weight:300;left:50%;transform:translateX(-50%);white-space:nowrap;letter-spacing:0.0061vw;letter-spacing:0.0061cqw"><b>Gala Dinner:</b> Sunway Hotel Ballroom, 7pm - 10pm</div>
+<div class="t wm" id="gala" style="top:46.5759%;font-size:3.2292vw;font-size:3.2292cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.4427vw));white-space:nowrap">The 2026</div>
+<h2 class="t wm" style="top:47.4134%;font-size:9.4792vw;font-size:9.4792cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.3698vw));white-space:nowrap;letter-spacing:-0.02em">Light Awards</h2>
 <div class="t wm" style="top:50.1860%;font-size:2.9688vw;font-size:2.9688cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.0781vw));white-space:nowrap;letter-spacing:.42em;padding-left:.42em">MALAYSIA</div>
 <h2 class="t" style="top:60.9403%;font-size:5.8333vw;font-size:5.8333cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.1667vw));white-space:nowrap;letter-spacing:-0.3146vw;letter-spacing:-0.3146cqw">Gala Dinner</h2>
-<div class="t body" style="top:62.8338%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:600;left:50%;transform:translateX(calc(-50% + -0.1172vw));white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">An evening of celebration to honour excellence and success.</div>
-<div class="t body" style="top:63.4496%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.0604vw));white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">Join us for the Light Awards Gala Dinner, a celebration of excellence and</div>
-<div class="t body" style="top:64.0653%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.1953vw));white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">achievement. This unforgettable evening honours the people who are</div>
-<div class="t body" style="top:64.6811%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.1745vw));white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">lighting the way forward. It is Malaysia's first gala dedicated to recognition,</div>
-<div class="t body" style="top:65.2969%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.0911vw));white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">entertainment, and celebration, where you can connect with fellow</div>
-<div class="t body" style="top:65.9126%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.1484vw));white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">LifeWave leaders and achievers.</div>
-<div class="t body" style="top:67.1442%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.0443vw));white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">Don't miss your chance to experience the Light Awards Gala Dinner—</div>
-<div class="t body" style="top:67.7599%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.0911vw));white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">limited seats available.</div>
-<h2 class="t" style="top:75.6175%;font-size:4.0625vw;font-size:4.0625cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.1510vw));white-space:nowrap;letter-spacing:-0.1135vw;letter-spacing:-0.1135cqw">Featured Performance</h2>
-<div class="t" style="top:79.0536%;font-size:2.1354vw;font-size:2.1354cqw;font-weight:300;left:43.0208%;white-space:nowrap;letter-spacing:-0.0625vw;letter-spacing:-0.0625cqw">Position Title</div>
-<h3 class="t" style="top:79.6899%;font-size:4.8177vw;font-size:4.8177cqw;font-weight:300;left:35.0104%;white-space:nowrap;letter-spacing:-0.1131vw;letter-spacing:-0.1131cqw">Coming Soon</h3>
-<div class="t body" style="top:81.3615%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:31.5417%;white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">The celebrations continue with a special live</div>
-<div class="t body" style="top:81.9772%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:32.1281%;white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">performance during the Gala Dinner. Enjoy</div>
-<div class="t body" style="top:82.5930%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:35.7052%;white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">an evening filled with recognition,</div>
-<div class="t body" style="top:83.2087%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:32.2458%;white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">connection, and entertainment, with more</div>
-<div class="t body" style="top:83.8245%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:400;left:36.8677%;white-space:nowrap;letter-spacing:0.0000vw;letter-spacing:0.0000cqw">details to be announced soon.</div>
+<div class="t" style="top:63.0528%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:600;left:50%;transform:translateX(calc(-50% + -0.0781vw));white-space:nowrap;letter-spacing:-0.0443vw;letter-spacing:-0.0443cqw">An evening of celebration to honour excellence and success</div>
+<div class="t" style="top:63.6138%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.0604vw));white-space:nowrap;letter-spacing:-0.0722vw;letter-spacing:-0.0722cqw">Join us for the Light Awards Gala Dinner, a celebration of excellence and</div>
+<div class="t" style="top:64.1748%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.2214vw));white-space:nowrap;letter-spacing:-0.0679vw;letter-spacing:-0.0679cqw">achievement. This unforgettable evening honours the people who are</div>
+<div class="t" style="top:64.7358%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.1224vw));white-space:nowrap;letter-spacing:-0.0702vw;letter-spacing:-0.0702cqw">lighting the way forward. It is Malaysia's first gala dedicated to recognition,</div>
+<div class="t" style="top:65.2969%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.0391vw));white-space:nowrap;letter-spacing:-0.0715vw;letter-spacing:-0.0715cqw">entertainment, and celebration, where you can connect with fellow</div>
+<div class="t" style="top:65.8579%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.0964vw));white-space:nowrap;letter-spacing:-0.0682vw;letter-spacing:-0.0682cqw">LifeWave leaders and achievers.</div>
+<div class="t" style="top:66.9800%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.0443vw));white-space:nowrap;letter-spacing:-0.0710vw;letter-spacing:-0.0710cqw">Don't miss your chance to experience the Light Awards Gala Dinner—</div>
+<div class="t" style="top:67.5410%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.0391vw));white-space:nowrap;letter-spacing:-0.0591vw;letter-spacing:-0.0591cqw">limited seats available.</div>
+<h2 class="t" style="top:75.6175%;font-size:4.0625vw;font-size:4.0625cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.1250vw));white-space:nowrap;letter-spacing:-0.1135vw;letter-spacing:-0.1135cqw">Featured Performance</h2>
+<div class="t" style="top:79.0536%;font-size:2.1354vw;font-size:2.1354cqw;font-weight:300;left:43.0729%;white-space:nowrap;letter-spacing:-0.0625vw;letter-spacing:-0.0625cqw">Position Title</div>
+<h3 class="t" style="top:79.6762%;font-size:4.8177vw;font-size:4.8177cqw;font-weight:300;left:35.0365%;white-space:nowrap;letter-spacing:-0.1131vw;letter-spacing:-0.1131cqw">Coming Soon</h3>
+<div class="t" style="top:81.4709%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:31.5677%;white-space:nowrap;letter-spacing:-0.0694vw;letter-spacing:-0.0694cqw">The celebrations continue with a special live</div>
+<div class="t" style="top:82.0320%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:32.1281%;white-space:nowrap;letter-spacing:-0.0702vw;letter-spacing:-0.0702cqw">performance during the Gala Dinner. Enjoy</div>
+<div class="t" style="top:82.5930%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:35.7052%;white-space:nowrap;letter-spacing:-0.0796vw;letter-spacing:-0.0796cqw">an evening filled with recognition,</div>
+<div class="t" style="top:83.1540%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:32.2979%;white-space:nowrap;letter-spacing:-0.0761vw;letter-spacing:-0.0761cqw">connection, and entertainment, with more</div>
+<div class="t" style="top:83.7150%;font-size:1.9271vw;font-size:1.9271cqw;font-weight:300;left:36.8938%;white-space:nowrap;letter-spacing:-0.0607vw;letter-spacing:-0.0607cqw">details to be announced soon.</div>
 <a class="t tlink" href="support/" style="top:93.3344%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:42.1562%;white-space:nowrap">Customer Support</a>
 <a class="t tlink" href="privacy/" style="top:93.3480%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:59.2083%;white-space:nowrap">Privacy Policy</a>
 <a class="t tlink" href="terms/" style="top:93.3480%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:78.6875%;white-space:nowrap">Terms and Conditions</a>
 <a class="t tlink" href="code-of-ethics/" style="top:94.0049%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:42.2083%;white-space:nowrap">Code of Ethics</a>
 <a class="t tlink" href="accessibility/" style="top:94.0185%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:59.2396%;white-space:nowrap">Accessibility Statement</a>
 <div class="t" style="top:96.1258%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:9.4219%;white-space:nowrap;letter-spacing:-0.0065vw;letter-spacing:-0.0065cqw">© LifeWave, Inc. 2026 All rights reserved</div>
-<div class="t" style="top:96.1258%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:600;opacity:0.78;left:42.0417%;white-space:nowrap">Join the Conversation</div>
+<div class="t" style="top:96.1258%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:600;opacity:0.78;left:41.8854%;white-space:nowrap">Join the Conversation</div>
 <a class="t tlink" href="mailto:summit@lwapac.com" style="top:94.6480%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;opacity:0.78;left:42.1875%;white-space:nowrap">summit@lwapac.com</a>
-<a href="#top" style="position:absolute;left:4.7396%;top:1.2999%;width:15.5729%;z-index:6"><img src="assets/logo.3651b7f4.webp" style="width:100%" alt="LifeWave"></a>
-<img src="assets/logo.3651b7f4.webp" loading="lazy" decoding="async" style="position:absolute;left:7.4479%;top:92.6382%;width:28.2292%;z-index:6" alt="LifeWave">
-<div style="position:absolute;left:8.6979%;top:91.6119%;width:82.6042%;height:1px;background:rgba(255,255,255,.28);z-index:6"></div>
-<a class="pill" href="#reserve" style="left:83.4375%;top:1.4915%;width:11.3542%;height:0.7937%;font-size:1.2396vw;font-size:1.2396cqw">Reserve Now</a><a class="pill" href="#reserve-summit" style="left:35.7292%;top:25.2874%;width:27.2917%;height:1.4231%;font-size:2.5521vw;font-size:2.5521cqw">Secure Your Seat</a><a class="pill" href="#reserve-gala" style="left:35.7292%;top:69.4992%;width:27.2917%;height:1.4231%;font-size:2.5521vw;font-size:2.5521cqw">Secure Your Seat</a><a class="pill" href="#reserve" style="left:78.5938%;top:95.8265%;width:11.9792%;height:0.8347%;font-size:1.2500vw;font-size:1.2500cqw">Reserve Now</a>
-<div class="cue" style="left:48.8542%;top:13.1226%;border-color:rgba(255,255,255,.65)"><span style="background:rgba(255,255,255,.65)"></span></div>
-<div class="cuechev" style="left:49.2188%;top:14.0120%"><svg viewBox="0 0 24 20" fill="none" stroke="rgba(255,255,255,.65)" stroke-width="2"><path d="M4 2l8 7 8-7"/><path d="M4 10l8 7 8-7"/></svg></div>
-<div class="cue" style="left:48.8542%;top:56.4997%;border-color:rgba(240,205,150,.75)"><span style="background:rgba(240,205,150,.75)"></span></div>
-<div class="cuechev" style="left:49.2188%;top:57.3892%"><svg viewBox="0 0 24 20" fill="none" stroke="rgba(240,205,150,.75)" stroke-width="2"><path d="M4 2l8 7 8-7"/><path d="M4 10l8 7 8-7"/></svg></div>
-<a href="#top" class="totop" style="left:85.9375%;top:24.1379%;width:5.5729%;height:1.4641%"><svg viewBox="0 0 24 24" fill="none" stroke="#7fbdff" stroke-width="2.2"><path d="M6 15l6-6 6 6"/><path d="M6 10l6-6 6 6"/></svg></a>
-<a href="#top" class="totop" style="left:85.9375%;top:85.0985%;width:5.5729%;height:1.4641%"><svg viewBox="0 0 24 24" fill="none" stroke="#7fbdff" stroke-width="2.2"><path d="M6 15l6-6 6 6"/><path d="M6 10l6-6 6 6"/></svg></a>
-<div class="social" style="left:56.3542%;top:95.9360%"><a href="https://www.facebook.com/LifeWaveGlobal" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="#fff"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.5-1.5h1.6V4.6c-.28-.04-1.24-.12-2.36-.12-2.33 0-3.94 1.43-3.94 4.05v2.26H7.9V14h2.4v8z"/></svg></a><a href="https://www.instagram.com/lifewaveglobal/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="#fff"><path fill-rule="evenodd" d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.37-1.06-.42-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.21 8.8 2.2 12 2.2m0 3.35a4.45 4.45 0 1 1 0 8.9 4.45 4.45 0 0 1 0-8.9m0 7.34a2.89 2.89 0 1 0 0-5.78 2.89 2.89 0 0 0 0 5.78m5.66-7.56a1.04 1.04 0 1 1-2.08 0 1.04 1.04 0 0 1 2.08 0"/></svg></a><a href="https://www.youtube.com/@LifeWaveGlobal" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="#fff"><path d="M23 12s0-3.2-.4-4.72a2.47 2.47 0 0 0-1.74-1.75C19.35 5.1 12 5.1 12 5.1s-7.35 0-8.86.43A2.47 2.47 0 0 0 1.4 7.28C1 8.8 1 12 1 12s0 3.2.4 4.72a2.47 2.47 0 0 0 1.74 1.75c1.51.43 8.86.43 8.86.43s7.35 0 8.86-.43a2.47 2.47 0 0 0 1.74-1.75C23 15.2 23 12 23 12M9.75 15.02V8.98L15.5 12z"/></svg></a><a href="https://x.com/lifewaveglobal" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="#fff"><path d="M18.9 2H22l-7.3 8.34L23.2 22h-6.6l-5.18-6.77L5.5 22H2.4l7.8-8.92L1.2 2h6.77l4.68 6.19zm-1.16 18h1.7L7.34 3.9H5.5z"/></svg></a><a href="https://www.linkedin.com/company/lifewave" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M6.94 5A1.94 1.94 0 1 1 3.06 5a1.94 1.94 0 0 1 3.88 0M3.32 8.4h3.24V22H3.32zM9.1 8.4h3.1v1.86h.05c.43-.82 1.49-1.68 3.06-1.68 3.27 0 3.87 2.15 3.87 4.95V22h-3.23v-6.02c0-1.44-.03-3.29-2-3.29-2.01 0-2.32 1.57-2.32 3.19V22H9.1z"/></svg></a></div>
+<a class="hit" href="#top" aria-label="The Light Summit — top of page" style="left:4.7396%;top:1.2315%;width:15.8854%;height:1.2999%"></a>
+<a class="pill" href="#reserve" style="left:83.2292%;top:1.4915%;width:11.7708%;height:0.7937%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:450;letter-spacing:-0.0193vw;letter-spacing:-0.0193cqw">Reserve Now</a><a class="pill" href="#reserve-summit" style="left:35.6250%;top:25.2874%;width:27.5000%;height:1.4231%;font-size:2.5521vw;font-size:2.5521cqw;font-weight:450;letter-spacing:-0.0359vw;letter-spacing:-0.0359cqw;padding-bottom:0.3125vw">Secure Your Seat</a><a class="pill" href="#reserve-gala" style="left:35.6250%;top:69.4992%;width:27.5000%;height:1.4231%;font-size:2.5521vw;font-size:2.5521cqw;font-weight:450;letter-spacing:-0.0359vw;letter-spacing:-0.0359cqw;padding-bottom:0.3125vw">Secure Your Seat</a><a class="pill" href="#reserve" style="left:78.4375%;top:95.8265%;width:12.3438%;height:0.8210%;font-size:1.2500vw;font-size:1.2500cqw;font-weight:450">Reserve Now</a>
+<a href="#top" class="totop blue" aria-label="Back to top" style="left:87.3958%;top:24.9042%;width:5.5208%;height:1.4505%"></a><a href="#top" class="totop gold" aria-label="Back to top" style="left:87.3438%;top:85.8511%;width:5.5208%;height:1.4505%"></a>
+<a class="shit" href="https://www.facebook.com/LifeWaveGlobal" target="_blank" rel="noopener" aria-label="Facebook" style="left:56.1458%;top:95.8949%;width:2.0312%;height:0.6842%"></a><a class="shit" href="https://www.instagram.com/lifewaveglobal/" target="_blank" rel="noopener" aria-label="Instagram" style="left:59.3750%;top:95.8949%;width:2.8125%;height:0.6842%"></a><a class="shit" href="https://www.youtube.com/@LifeWaveGlobal" target="_blank" rel="noopener" aria-label="YouTube" style="left:63.2292%;top:95.8949%;width:3.1250%;height:0.6842%"></a><a class="shit" href="https://x.com/lifewaveglobal" target="_blank" rel="noopener" aria-label="X" style="left:67.4479%;top:95.8949%;width:2.4479%;height:0.6842%"></a><a class="shit" href="https://www.linkedin.com/company/lifewave" target="_blank" rel="noopener" aria-label="LinkedIn" style="left:71.0938%;top:95.8949%;width:2.5521%;height:0.6842%"></a>
 <span id="gala" style="position:absolute;top:45.9%;"></span>
 <span id="footer" style="position:absolute;top:91.0%;"></span>
 <span id="contact" style="position:absolute;top:93.4%;"></span>
@@ -261,7 +246,7 @@ body{background:#0F101E;font-family:'CoFo Sans',system-ui,sans-serif}
   <a class="m-pill" href="#reserve">Reserve Now</a>
 </header>
 
-<section class="m-kv" id="mtop" style="background-image:url('assets/bg-01-1920.35e59191.webp')">
+<section class="m-kv" id="mtop" style="background-image:url('assets/bg-kv1.88768d7e.webp')">
   <h1>Light Summit</h1>
   <p class="m-country">MALAYSIA</p>
   <p class="m-when"><b>Date:</b> 3 November 2026, Tuesday</p>
@@ -287,7 +272,7 @@ body{background:#0F101E;font-family:'CoFo Sans',system-ui,sans-serif}
   </div>
 </section>
 
-<section class="m-kv" id="mgala" style="background-image:url('assets/bg-04-1920.3710cfc3.webp')">
+<section class="m-kv" id="mgala" style="background-image:url('assets/bg-kv4.c1a8cfbe.webp')">
   <h2 class="kv">Light Awards</h2>
   <p class="m-country">MALAYSIA</p>
   <p class="m-when"><b>Date:</b> 3 November 2026, Tuesday</p>
