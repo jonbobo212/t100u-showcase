@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The 2026 Light Summit Japan — LifeWave APAC Tour</title>
 <meta name="description" content="2026 ライトサミット ジャパン。ビジネスサミットとライトアワード ガラディナー、2026年11月13日（金）東京ビッグサイト。">
-<meta name="robots" content="noindex,nofollow">
 
 <link rel="canonical" href="https://www.lwapac.com/jp/">
 <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -290,7 +289,7 @@ body,.stage{background:#000!important}
 <img class="bg" src="assets/bg-05-1920.webp" srcset="assets/bg-05-1920.webp 1920w, assets/bg-05-4000.webp 4000w" sizes="100vw" width="4000" height="2250" loading="lazy" decoding="async" alt="" draggable="false">
 <img class="bg" src="assets/bg-06-1920.webp" srcset="assets/bg-06-1920.webp 1920w, assets/bg-06-4000.webp 4000w" sizes="100vw" width="4000" height="2250" loading="lazy" decoding="async" alt="" draggable="false">
 <img class="bg" src="assets/bg-07-1920.webp" srcset="assets/bg-07-1920.webp 1920w, assets/bg-07-4000.webp 4000w" sizes="100vw" width="4000" height="1725" loading="lazy" decoding="async" alt="" draggable="false">
-
+<video class="herovid" id="herovid" muted loop playsinline preload="none" poster="assets/stars-poster.webp" aria-hidden="true" tabindex="-1" data-webm="assets/stars.webm" data-mp4="assets/stars.mp4"></video>
 <div class="portw" style="left:59.6354%;top:33.5933%;width:15.9896%;height:6.8829%;-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 62%,rgba(0,0,0,.55) 84%,rgba(0,0,0,0) 100%);mask-image:linear-gradient(180deg,#000 0%,#000 62%,rgba(0,0,0,.55) 84%,rgba(0,0,0,0) 100%)"><img src="assets/kelmen-narrow.webp" loading="lazy" decoding="async" alt="Kelmen Ooi, Vice President of Sales, Asia Pacific" style="left:3.029%;top:-3.340%;width:100.000%"></div>
 <a class="t tlink" data-m="nav1" href="#top" style="top:1.7544%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:300;left:35.3125%;white-space:nowrap">サミット</a>
 <a class="t tlink" data-m="nav2" href="#gala" style="top:1.7544%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:300;left:47.2396%;white-space:nowrap">ガラディナー</a>
@@ -486,7 +485,14 @@ document.querySelectorAll('a[href="#"]').forEach(a=>a.addEventListener('click',e
   addEventListener('resize',frame,{passive:true});
   frame();
   var hv=document.getElementById('herovid');
-  if(hv){
+  /* the desktop canvas is display:none below 900px, but a hidden video with
+     sources still downloads - so a phone never gets the sources at all */
+  if(hv&&matchMedia('(min-width:900px)').matches){
+    ['webm','mp4'].forEach(function(k){
+      var so=document.createElement('source');
+      so.src=hv.dataset[k]; so.type='video/'+k; hv.appendChild(so);
+    });
+    hv.preload='auto'; hv.load();
     if(matchMedia('(prefers-reduced-motion:reduce)').matches){
       hv.removeAttribute('loop');            /* poster frame only */
     } else {
