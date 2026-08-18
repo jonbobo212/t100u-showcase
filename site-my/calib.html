@@ -92,9 +92,6 @@ body{background:#0F101E;font-family:'CoFo Sans',system-ui,sans-serif}
   .fab{transition:opacity .2s}
   html{scroll-behavior:auto}
 }
-.herovid{position:absolute;left:0;top:0;width:100%;height:14.7767%;z-index:1;
-  object-fit:cover;mix-blend-mode:screen;pointer-events:none;user-select:none}
-
 /* ---------- mobile layout (<900px) ---------- */
 .m{display:none}
 @media (max-width:899px){
@@ -263,7 +260,6 @@ body,.stage{background:#000!important}
 <img class="bg" src="assets/bg-05-1920.webp" srcset="assets/bg-05-1920.webp 1920w, assets/bg-05-4000.webp 4000w" sizes="100vw" width="4000" height="2250" loading="lazy" decoding="async" alt="" draggable="false">
 <img class="bg" src="assets/bg-06-1920.webp" srcset="assets/bg-06-1920.webp 1920w, assets/bg-06-4000.webp 4000w" sizes="100vw" width="4000" height="2250" loading="lazy" decoding="async" alt="" draggable="false">
 <img class="bg" src="assets/bg-07-1920.webp" srcset="assets/bg-07-1920.webp 1920w, assets/bg-07-4000.webp 4000w" sizes="100vw" width="4000" height="1725" loading="lazy" decoding="async" alt="" draggable="false">
-<video class="herovid" id="herovid" muted loop playsinline preload="none" poster="assets/stars-poster.webp" aria-hidden="true" tabindex="-1" data-webm="assets/stars.webm" data-mp4="assets/stars.mp4"></video>
 
 <a class="t tlink" data-m="nav1" href="#top" style="top:1.7251%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:300;left:35.3125%;white-space:nowrap;letter-spacing:-0.0521vw;letter-spacing:-0.0521cqw">Summit</a>
 <a class="t tlink" data-m="nav2" href="#gala" style="top:1.7251%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:300;left:47.2396%;white-space:nowrap">Gala Dinner</a>
@@ -437,31 +433,6 @@ document.querySelectorAll('a[href="#"]').forEach(a=>a.addEventListener('click',e
   addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
   addEventListener('resize',frame,{passive:true});
   frame();
-  var hv=document.getElementById('herovid');
-  /* the desktop canvas is display:none below 900px, but a hidden video with
-     sources still downloads - so a phone never gets the sources at all */
-  if(hv&&matchMedia('(min-width:900px)').matches){
-    ['webm','mp4'].forEach(function(k){
-      var so=document.createElement('source');
-      so.src=hv.dataset[k]; so.type='video/'+k; hv.appendChild(so);
-    });
-    hv.preload='auto'; hv.load();
-    if(matchMedia('(prefers-reduced-motion:reduce)').matches){
-      hv.removeAttribute('loop');            /* poster frame only */
-    } else {
-      var play=function(){hv.play().catch(function(){})};
-      play();
-      /* nothing gained by decoding it while it is scrolled past */
-      if('IntersectionObserver' in window){
-        new IntersectionObserver(function(es){
-          es.forEach(function(e){e.isIntersecting?play():hv.pause()});
-        },{threshold:0}).observe(hv);
-      }
-      document.addEventListener('visibilitychange',function(){
-        document.hidden?hv.pause():play();
-      });
-    }
-  }
   fab.addEventListener('click',function(){
     var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
     window.scrollTo({top:0,behavior:rm?'auto':'smooth'});

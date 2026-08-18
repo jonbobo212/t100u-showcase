@@ -96,9 +96,6 @@ body{background:#0F101E;font-family:'CoFo Sans','Noto Sans JP',system-ui,sans-se
   .fab{transition:opacity .2s}
   html{scroll-behavior:auto}
 }
-.herovid{position:absolute;left:0;top:0;width:100%;height:14.7767%;z-index:1;
-  object-fit:cover;mix-blend-mode:screen;pointer-events:none;user-select:none}
-
 /* ---------- mobile layout (<900px) ---------- */
 .m{display:none}
 @media (max-width:899px){
@@ -267,7 +264,6 @@ body,.stage{background:#000!important}
 <img class="bg" src="assets/bg-05-1920.webp" srcset="assets/bg-05-1920.webp 1920w, assets/bg-05-4000.webp 4000w" sizes="100vw" width="4000" height="2250" loading="lazy" decoding="async" alt="" draggable="false">
 <img class="bg" src="assets/bg-06-1920.webp" srcset="assets/bg-06-1920.webp 1920w, assets/bg-06-4000.webp 4000w" sizes="100vw" width="4000" height="2250" loading="lazy" decoding="async" alt="" draggable="false">
 <img class="bg" src="assets/bg-07-1920.webp" srcset="assets/bg-07-1920.webp 1920w, assets/bg-07-4000.webp 4000w" sizes="100vw" width="4000" height="1725" loading="lazy" decoding="async" alt="" draggable="false">
-<video class="herovid" id="herovid" muted loop playsinline preload="none" poster="assets/stars-poster.webp" aria-hidden="true" tabindex="-1" data-webm="assets/stars.webm" data-mp4="assets/stars.mp4"></video>
 <div class="portw" style="left:59.6354%;top:33.5933%;width:15.9896%;height:6.8829%;-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 62%,rgba(0,0,0,.55) 84%,rgba(0,0,0,0) 100%);mask-image:linear-gradient(180deg,#000 0%,#000 62%,rgba(0,0,0,.55) 84%,rgba(0,0,0,0) 100%)"><img src="assets/kelmen-narrow.webp" loading="lazy" decoding="async" alt="Kelmen Ooi, Vice President of Sales, Asia Pacific" style="left:3.029%;top:-3.340%;width:100.000%"></div>
 <a class="t tlink" data-m="nav1" href="#top" style="top:1.7544%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:300;left:35.3125%;white-space:nowrap">サミット</a>
 <a class="t tlink" data-m="nav2" href="#gala" style="top:1.7544%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:300;left:47.2396%;white-space:nowrap">ガラディナー</a>
@@ -279,8 +275,8 @@ body,.stage{background:#000!important}
 <div class="t" data-m="d1" style="top:10.3231%;font-size:1.7969vw;font-size:1.7969cqw;font-weight:300;left:50%;transform:translateX(-50%);white-space:nowrap"><b>開催日：</b>2026年11月13日（金）</div>
 <div class="t" data-m="d2" style="top:11.2262%;font-size:1.7969vw;font-size:1.7969cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.0234vw));white-space:nowrap"><b>サミット会場：</b>東京ビッグサイト 南3ホール、11:00 ～ 14:30（予定）</div>
 <h2 class="t" data-m="h1" style="top:17.0307%;font-size:5.8333vw;font-size:5.8333cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.2604vw));white-space:nowrap">さらなる高みを目指しませんか？</h2>
-<h2 class="t" data-m="sh1" style="top:30.9134%;font-size:4.0625vw;font-size:4.0625cqw;font-weight:300;left:9.6510%;white-space:nowrap">基調講演</h2>
-<h2 class="t" data-m="sh2" style="top:30.9134%;font-size:4.0625vw;font-size:4.0625cqw;font-weight:300;left:52.6198%;white-space:nowrap">注目スピーカー</h2>
+<h2 class="t" data-m="sh1" style="top:30.9134%;font-size:4.0625vw;font-size:4.0625cqw;font-weight:300;left:23.8542%;transform:translateX(-50%);white-space:nowrap">基調講演</h2>
+<h2 class="t" data-m="sh2" style="top:30.9134%;font-size:4.0625vw;font-size:4.0625cqw;font-weight:300;left:67.5680%;transform:translateX(-50%);white-space:nowrap">注目スピーカー</h2>
 <div class="t" data-m="gd1" style="top:53.8369%;font-size:1.8073vw;font-size:1.8073cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + 0.0260vw));white-space:nowrap"><b>開催日：</b>2026年11月13日（金）</div>
 <div class="t" data-m="gd2" style="top:54.7263%;font-size:1.8073vw;font-size:1.8073cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + 0.0260vw));white-space:nowrap"><b>ガラディナー会場：</b>東京ビッグサイト 南4ホール、17:00 ～ 20:30（予定）</div>
 <div class="t wm" data-m="gw1" id="gala" style="top:46.5759%;font-size:3.2292vw;font-size:3.2292cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.5208vw));white-space:nowrap;letter-spacing:0.0223vw;letter-spacing:0.0223cqw">The 2026</div>
@@ -288,7 +284,7 @@ body,.stage{background:#000!important}
 <div class="t wm" data-m="gw3" style="top:50.1860%;font-size:2.9688vw;font-size:2.9688cqw;font-weight:400;left:50%;transform:translateX(calc(-50% + -0.0781vw));white-space:nowrap;padding-left:.42em">JAPAN</div>
 <h2 class="t" data-m="g1" style="top:61.0783%;font-size:5.8333vw;font-size:5.8333cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.1667vw));white-space:nowrap">ガラディナー</h2>
 <h2 class="t" data-m="fp1" style="top:75.7136%;font-size:4.0625vw;font-size:4.0625cqw;font-weight:300;left:50%;transform:translateX(calc(-50% + -0.0729vw));white-space:nowrap">特別公演</h2>
-<h3 class="t" data-m="fp3" style="top:79.7901%;font-size:4.8177vw;font-size:4.8177cqw;font-weight:300;left:35.0885%;white-space:nowrap">近日発表</h3>
+<h3 class="t" data-m="fp3" style="top:79.7901%;font-size:4.8177vw;font-size:4.8177cqw;font-weight:300;left:48.8021%;transform:translateX(-50%);white-space:nowrap">近日発表</h3>
 <a class="t tlink" data-m="fl1" href="support/" style="top:93.3207%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;--o:0.78;left:42.1562%;white-space:nowrap">Customer Support</a>
 <a class="t tlink" data-m="fl2" href="privacy/" style="top:93.3207%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;--o:0.78;left:59.2083%;white-space:nowrap;letter-spacing:-0.0080vw;letter-spacing:-0.0080cqw">Privacy Policy</a>
 <a class="t tlink" data-m="fl3" href="terms/" style="top:93.3207%;font-size:1.3021vw;font-size:1.3021cqw;font-weight:400;--o:0.78;left:78.6875%;white-space:nowrap">Terms and Conditions</a>
@@ -320,10 +316,10 @@ body,.stage{background:#000!important}
 <div class="t" data-m="perf4" style="top:83.3597%;font-size:1.3802vw;font-size:1.3802cqw;font-weight:300;left:48.8021%;transform:translateX(-50%);white-space:nowrap">表彰、交流、そしてエンターテインメントに満</div>
 <div class="t" data-m="perf5" style="top:83.9036%;font-size:1.3802vw;font-size:1.3802cqw;font-weight:300;left:48.8021%;transform:translateX(-50%);white-space:nowrap">ちた特別な夜をお過ごしください。詳細は近日</div>
 <div class="t" data-m="perf6" style="top:84.4475%;font-size:1.3802vw;font-size:1.3802cqw;font-weight:300;left:48.8021%;transform:translateX(-50%);white-space:nowrap">発表いたします。</div>
-<h3 class="t" data-m="keynoten1" style="top:39.5334%;font-size:2.7083vw;font-size:2.7083cqw;font-weight:300;left:20.7552%;transform:translateX(-50%);white-space:nowrap">デイビッド</h3>
-<div class="t" data-m="keynoten2" style="top:40.3544%;font-size:2.7083vw;font-size:2.7083cqw;font-weight:300;left:20.7552%;transform:translateX(-50%);white-space:nowrap">シュミット</div>
-<div class="t" data-m="keynoter1" style="top:42.0464%;font-size:1.5625vw;font-size:1.5625cqw;font-weight:400;left:20.7552%;transform:translateX(-50%);white-space:nowrap;--o:0.78">ライフウェーブ</div>
-<div class="t" data-m="keynoter2" style="top:42.5390%;font-size:1.5625vw;font-size:1.5625cqw;font-weight:400;left:20.7552%;transform:translateX(-50%);white-space:nowrap;--o:0.78">創設者兼CEO</div>
+<h3 class="t" data-m="keynoten1" style="top:39.5334%;font-size:2.7083vw;font-size:2.7083cqw;font-weight:300;left:23.8542%;transform:translateX(-50%);white-space:nowrap">デイビッド</h3>
+<div class="t" data-m="keynoten2" style="top:40.3544%;font-size:2.7083vw;font-size:2.7083cqw;font-weight:300;left:23.8542%;transform:translateX(-50%);white-space:nowrap">シュミット</div>
+<div class="t" data-m="keynoter1" style="top:42.0464%;font-size:1.5625vw;font-size:1.5625cqw;font-weight:400;left:23.8542%;transform:translateX(-50%);white-space:nowrap;--o:0.78">ライフウェーブ</div>
+<div class="t" data-m="keynoter2" style="top:42.5390%;font-size:1.5625vw;font-size:1.5625cqw;font-weight:400;left:23.8542%;transform:translateX(-50%);white-space:nowrap;--o:0.78">創設者兼CEO</div>
 <h3 class="t" data-m="slot1n1" style="top:41.4087%;font-size:1.9792vw;font-size:1.9792cqw;font-weight:300;left:51.5885%;transform:translateX(-50%);white-space:nowrap">Dr. エドワード</h3>
 <div class="t" data-m="slot1n2" style="top:42.0108%;font-size:1.9792vw;font-size:1.9792cqw;font-weight:300;left:51.5885%;transform:translateX(-50%);white-space:nowrap">チュー</div>
 <div class="t" data-m="slot1r1" style="top:42.7788%;font-size:1.1979vw;font-size:1.1979cqw;font-weight:400;left:51.5885%;transform:translateX(-50%);white-space:nowrap;--o:0.78">アジア太平洋地域</div>
@@ -332,8 +328,8 @@ body,.stage{background:#000!important}
 <div class="t" data-m="slot2n2" style="top:42.0108%;font-size:1.9792vw;font-size:1.9792cqw;font-weight:300;left:67.3958%;transform:translateX(-50%);white-space:nowrap">オオイ</div>
 <div class="t" data-m="slot2r1" style="top:42.7788%;font-size:1.1979vw;font-size:1.1979cqw;font-weight:400;left:67.3958%;transform:translateX(-50%);white-space:nowrap;--o:0.78">アジア太平洋地域</div>
 <div class="t" data-m="slot2r2" style="top:43.1893%;font-size:1.1979vw;font-size:1.1979cqw;font-weight:400;left:67.3958%;transform:translateX(-50%);white-space:nowrap;--o:0.78">（APAC）担当副社長</div>
-<h3 class="t" data-m="slot3n1" style="top:41.4087%;font-size:1.9792vw;font-size:1.9792cqw;font-weight:300;left:83.2031%;transform:translateX(-50%);white-space:nowrap">近日</h3>
-<div class="t" data-m="slot3n2" style="top:42.0108%;font-size:1.9792vw;font-size:1.9792cqw;font-weight:300;left:83.2031%;transform:translateX(-50%);white-space:nowrap">発表</div>
+<h3 class="t" data-m="slot3n1" style="top:41.4087%;font-size:1.9792vw;font-size:1.9792cqw;font-weight:300;left:83.5000%;transform:translateX(-50%);white-space:nowrap">近日</h3>
+<div class="t" data-m="slot3n2" style="top:42.0108%;font-size:1.9792vw;font-size:1.9792cqw;font-weight:300;left:83.5000%;transform:translateX(-50%);white-space:nowrap">発表</div>
 <a class="hit" href="#top" aria-label="The Light Summit — top of page" style="left:4.7396%;top:1.2315%;width:15.8854%;height:1.2999%"></a>
 <a class="pill" href="https://form.evenesis.com/LifeWaveJP" target="_blank" rel="noopener" style="left:83.2292%;top:1.4915%;width:11.7708%;height:0.7937%;font-size:1.2396vw;font-size:1.2396cqw;font-weight:450">今すぐ予約</a><a class="pill" href="https://form.evenesis.com/LifeWaveJP" target="_blank" rel="noopener" style="left:35.6250%;top:25.2874%;width:27.5000%;height:1.4231%;font-size:1.5813vw;font-size:1.5813cqw;font-weight:450;padding-bottom:0.3125vw">今すぐお申し込みください。</a><a class="pill" href="https://form.evenesis.com/LifeWaveJP" target="_blank" rel="noopener" style="left:35.6250%;top:69.4992%;width:27.5000%;height:1.4231%;font-size:1.5813vw;font-size:1.5813cqw;font-weight:450;padding-bottom:0.3125vw">今すぐお申し込みください。</a><a class="pill" href="https://form.evenesis.com/LifeWaveJP" target="_blank" rel="noopener" style="left:78.4375%;top:95.8265%;width:12.3438%;height:0.8210%;font-size:1.2500vw;font-size:1.2500cqw;font-weight:450">今すぐ予約</a>
 <button class="fab" id="fab" aria-label="Back to top"><svg class="ring" viewBox="0 0 44 44" aria-hidden="true"><circle class="trk"/><circle class="prg"/></svg><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13.5 12 7l7 6.5M5 19l7-6.5 7 6.5"/></svg></span></button>
@@ -443,31 +439,6 @@ document.querySelectorAll('a[href="#"]').forEach(a=>a.addEventListener('click',e
   addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
   addEventListener('resize',frame,{passive:true});
   frame();
-  var hv=document.getElementById('herovid');
-  /* the desktop canvas is display:none below 900px, but a hidden video with
-     sources still downloads - so a phone never gets the sources at all */
-  if(hv&&matchMedia('(min-width:900px)').matches){
-    ['webm','mp4'].forEach(function(k){
-      var so=document.createElement('source');
-      so.src=hv.dataset[k]; so.type='video/'+k; hv.appendChild(so);
-    });
-    hv.preload='auto'; hv.load();
-    if(matchMedia('(prefers-reduced-motion:reduce)').matches){
-      hv.removeAttribute('loop');            /* poster frame only */
-    } else {
-      var play=function(){hv.play().catch(function(){})};
-      play();
-      /* nothing gained by decoding it while it is scrolled past */
-      if('IntersectionObserver' in window){
-        new IntersectionObserver(function(es){
-          es.forEach(function(e){e.isIntersecting?play():hv.pause()});
-        },{threshold:0}).observe(hv);
-      }
-      document.addEventListener('visibilitychange',function(){
-        document.hidden?hv.pause():play();
-      });
-    }
-  }
   fab.addEventListener('click',function(){
     var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
     window.scrollTo({top:0,behavior:rm?'auto':'smooth'});
