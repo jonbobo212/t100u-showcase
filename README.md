@@ -4,7 +4,7 @@
 
 T100U helps students from Uzbekistan, Tajikistan, Kyrgyzstan and the wider CIS apply exclusively to **QS World Ranking 2027 Top 100 universities** — with verified rankings, 1,391 real degree programs, and full support in **Uzbek, Russian and English**.
 
-This repository contains **curated excerpts of the production codebase**, published for technical review as part of the **President AI Award** application (Salam Global team — IT Park Uzbekistan resident). It is not the full application and does not build standalone. **All rights reserved.**
+This repository contains **curated excerpts of the production codebase**, published for technical review as part of the **President AI Award** application (T100U team — IT Park Uzbekistan resident). It is not the full application and does not build standalone. **All rights reserved.**
 
 ## The product ecosystem (all built in-house)
 
@@ -51,4 +51,4 @@ Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · next-int
 
 ---
 
-© Salam Global team. Excerpts published for award review only — all rights reserved.
+© T100U. Excerpts published for award review only — all rights reserved.
